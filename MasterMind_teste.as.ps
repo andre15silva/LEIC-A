@@ -1,0 +1,3137 @@
+%!PS-Adobe-3.0
+%%Title: C:\Users\André\Desktop\p3print_win\MasterMind_teste.as
+%%For: André
+%%Creator: a2ps version 4.13
+%%CreationDate: Tue Nov 28 18:00:54 2017
+%%BoundingBox: 24 24 571 818
+%%DocumentData: Clean7Bit
+%%Orientation: Landscape
+%%Pages: 8
+%%PageOrder: Ascend
+%%DocumentMedia: A4 595 842 0 () ()
+%%DocumentNeededResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-BoldOblique
+%%+ font Courier-Oblique
+%%+ font Helvetica
+%%+ font Helvetica-Bold
+%%+ font Symbol
+%%+ font Times-Bold
+%%+ font Times-Roman
+%%DocumentProcessColors: Black 
+%%Requirements: Tumble Duplex 
+%%DocumentSuppliedResources: procset a2ps-a2ps-hdr
+%%+ procset a2ps-black+white-Prolog
+%%+ encoding ISO-8859-1Encoding
+%%EndComments
+/a2psdict 200 dict def
+a2psdict begin
+%%BeginProlog
+%%Copyright: (c) 1988, 89, 90, 91, 92, 93 Miguel Santana
+%%Copyright: (c) 1995, 96, 97, 98 Akim Demaille, Miguel Santana
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+
+% EPSF import as in the Red Book
+/BeginInclude {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack 
+  userdict begin
+    0 setgray 0 setlinecap
+    1 setlinewidth 0 setlinejoin
+    10 setmiterlimit [ ] 0 setdash newpath
+    gs_languagelevel 1 ne {
+      false setstrokeadjust false setoverprint 
+    } if
+} bind def
+
+/EndInclude {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+/BeginEPSF {
+  BeginInclude
+  /showpage { } def
+} bind def
+
+/EndEPSF {
+  EndInclude
+} bind def
+
+% Page prefeed
+/page_prefeed {         % bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} bind def
+
+/deffont {
+  findfont exch scalefont def
+} bind def
+
+/reencode_font {
+  findfont reencode 2 copy definefont pop def
+} bind def
+
+% Function c-show (str => -)
+% centers text only according to x axis.
+/c-show { 
+  dup stringwidth pop
+  2 div neg 0 rmoveto
+  show
+} bind def
+
+% Function l-show (str => -)
+% prints texts so that it ends at currentpoint
+/l-show {
+  dup stringwidth pop neg 
+  0 
+  rmoveto show
+} bind def
+
+% center-fit show (str w => -)
+% show centered, and scale currentfont so that the width is less than w
+/cfshow {
+  exch dup stringwidth pop
+  % If the title is too big, try to make it smaller
+  3 2 roll 2 copy
+  gt
+  { % if, i.e. too big
+    exch div
+    currentfont exch scalefont setfont
+  } { % ifelse
+    pop pop 
+  }
+  ifelse
+  c-show			% center title
+} bind def
+
+% Return the y size of the current font
+% - => fontsize
+/currentfontsize {
+  currentfont /FontMatrix get 3 get 1000 mul
+} bind def
+
+% reencode the font
+% <encoding-vector> <fontdict> -> <newfontdict>
+/reencode { %def
+  dup length 5 add dict begin
+    { %forall
+      1 index /FID ne 
+      { def }{ pop pop } ifelse
+    } forall
+    /Encoding exch def
+
+    % Use the font's bounding box to determine the ascent, descent,
+    % and overall height; don't forget that these values have to be
+    % transformed using the font's matrix.
+    % We use `load' because sometimes BBox is executable, sometimes not.
+    % Since we need 4 numbers an not an array avoid BBox from being executed
+    /FontBBox load aload pop
+    FontMatrix transform /Ascent exch def pop
+    FontMatrix transform /Descent exch def pop
+    /FontHeight Ascent Descent sub def
+
+    % Define these in case they're not in the FontInfo (also, here
+    % they're easier to get to.
+    /UnderlinePosition 1 def
+    /UnderlineThickness 1 def
+    
+    % Get the underline position and thickness if they're defined.
+    currentdict /FontInfo known {
+      FontInfo
+      
+      dup /UnderlinePosition known {
+	dup /UnderlinePosition get
+	0 exch FontMatrix transform exch pop
+	/UnderlinePosition exch def
+      } if
+      
+      dup /UnderlineThickness known {
+	/UnderlineThickness get
+	0 exch FontMatrix transform exch pop
+	/UnderlineThickness exch def
+      } if
+      
+    } if
+    currentdict 
+  end 
+} bind def
+
+% Function print line number (<string> # -)
+/# {
+  gsave
+    sx cw mul neg 2 div 0 rmoveto
+    f# setfont
+    c-show
+  grestore
+} bind def
+
+% -------- Some routines to enlight plain b/w printings ---------
+
+% Underline
+% width --
+/dounderline {
+  currentpoint
+  gsave
+    moveto
+    0 currentfont /Descent get currentfontsize mul rmoveto
+    0 rlineto
+    stroke
+  grestore
+} bind def
+
+% Underline a string
+% string --
+/dounderlinestring {
+  stringwidth pop
+  dounderline
+} bind def
+
+/UL {
+  /ul exch store
+} bind def
+
+% Draw a box of WIDTH wrt current font
+% width --
+/dobox {
+  currentpoint
+  gsave
+    newpath
+    moveto
+    0 currentfont /Descent get currentfontsize mul rmoveto
+    dup 0 rlineto
+    0 currentfont /FontHeight get currentfontsize mul rlineto
+    neg 0 rlineto
+    closepath
+    stroke
+  grestore
+} bind def
+
+/BX {
+  /bx exch store
+} bind def
+
+% Box a string
+% string --
+/doboxstring {
+  stringwidth pop
+  dobox
+} bind def
+
+%
+% ------------- Color routines ---------------
+%
+/FG /setrgbcolor load def
+
+% Draw the background
+% width --
+/dobackground {
+  currentpoint
+  gsave
+    newpath
+    moveto
+    0 currentfont /Descent get currentfontsize mul rmoveto
+    dup 0 rlineto
+    0 currentfont /FontHeight get currentfontsize mul rlineto
+    neg 0 rlineto
+    closepath
+    bgcolor aload pop setrgbcolor
+    fill
+  grestore
+} bind def
+
+% Draw bg for a string
+% string --
+/dobackgroundstring {
+  stringwidth pop
+  dobackground
+} bind def
+
+
+/BG {
+  dup /bg exch store
+  { mark 4 1 roll ] /bgcolor exch store } if
+} bind def
+
+
+/Show {
+  bg { dup dobackgroundstring } if
+  ul { dup dounderlinestring } if
+  bx { dup doboxstring } if
+  show
+} bind def
+
+% Function T(ab), jumps to the n-th tabulation in the current line
+/T {
+  cw mul x0 add
+  bg { dup currentpoint pop sub dobackground } if
+  ul { dup currentpoint pop sub dounderline } if
+  bx { dup currentpoint pop sub dobox } if
+  y0 moveto
+} bind def
+
+% Function n: move to the next line
+/n {
+  /y0 y0 bfs sub store
+  x0 y0 moveto
+} bind def
+
+% Function N: show and move to the next line
+/N {
+  Show
+  /y0 y0 bfs sub store
+  x0 y0 moveto
+} bind def
+
+/S {
+  Show
+} bind def
+
+%%BeginResource: procset a2ps-a2ps-hdr 2.0 2
+%%Copyright: (c) 1988, 89, 90, 91, 92, 93 Miguel Santana
+%%Copyright: (c) 1995, 96, 97, 98 Akim Demaille, Miguel Santana
+% Function title: prints page header.
+% <ct> <rt> <lt> are passed as argument
+/title { 
+  % 1. Draw the background
+  x v get y v get moveto
+  gsave
+    0 th 2 div neg rmoveto 
+    th setlinewidth
+    0.95 setgray
+    pw 0 rlineto stroke
+  grestore
+  % 2. Border it
+  gsave
+    0.7 setlinewidth
+    pw 0 rlineto
+    0 th neg rlineto
+    pw neg 0 rlineto
+    closepath stroke
+  grestore
+  % stk: ct rt lt
+  x v get y v get th sub 1 add moveto
+%%IncludeResource: font Helvetica
+  fHelvetica fnfs 0.8 mul scalefont setfont
+  % 3. The left title
+  gsave
+    dup stringwidth pop fnfs 0.8 mul add exch % leave space took on stack
+    fnfs 0.8 mul hm rmoveto
+    show			% left title
+  grestore
+  exch
+  % stk: ct ltw rt
+  % 4. the right title
+  gsave
+    dup stringwidth pop fnfs 0.8 mul add exch % leave space took on stack
+    dup
+    pw exch stringwidth pop fnfs 0.8 mul add sub
+    hm
+    rmoveto
+    show			% right title
+  grestore
+  % stk: ct ltw rtw
+  % 5. the center title
+  gsave
+    pw 3 1 roll
+    % stk: ct pw ltw rtw
+    3 copy 
+    % Move to the center of the left room
+    sub add 2 div hm rmoveto
+    % What is the available space in here?
+    add sub fnfs 0.8 mul sub fnfs 0.8 mul sub
+    % stk: ct space_left
+%%IncludeResource: font Helvetica-Bold
+  fHelvetica-Bold fnfs scalefont setfont
+    cfshow
+  grestore
+} bind def
+
+% Function border: prints virtual page border
+/border { %def
+  gsave				% print four sides
+    0 setgray
+    x v get y v get moveto
+    0.7 setlinewidth		% of the square
+    pw 0 rlineto
+    0 ph neg rlineto
+    pw neg 0 rlineto
+    closepath stroke
+  grestore
+} bind def
+
+% Function water: prints a water mark in background
+/water { %def
+  gsave
+    scx scy moveto rotate
+%%IncludeResource: font Times-Bold
+  fTimes-Bold 100 scalefont setfont
+    .97 setgray
+    dup stringwidth pop 2 div neg -50 rmoveto
+    show
+  grestore
+} bind def
+
+% Function rhead: prints the right header
+/rhead {  %def
+  lx ly moveto
+  fHelvetica fnfs 0.8 mul scalefont setfont
+  l-show
+} bind def
+
+% Function footer (cf rf lf -> -)
+/footer {
+  fHelvetica fnfs 0.8 mul scalefont setfont
+  dx dy moveto
+  show
+
+  snx sny moveto
+  l-show
+  
+  fnx fny moveto
+  c-show
+} bind def
+%%EndResource
+%%BeginResource: procset a2ps-black+white-Prolog 2.0 1
+
+% Function T(ab), jumps to the n-th tabulation in the current line
+/T { 
+  cw mul x0 add y0 moveto
+} bind def
+
+% Function n: move to the next line
+/n { %def
+  /y0 y0 bfs sub store
+  x0 y0 moveto
+} bind def
+
+% Function N: show and move to the next line
+/N {
+  Show
+  /y0 y0 bfs sub store
+  x0 y0 moveto
+}  bind def
+
+/S {
+  Show
+} bind def
+
+/p {
+  false UL
+  false BX
+  fCourier bfs scalefont setfont
+  Show
+} bind def
+
+/sy {
+  false UL
+  false BX
+  fSymbol bfs scalefont setfont
+  Show
+} bind def
+
+/k {
+  false UL
+  false BX
+  fCourier-Oblique bfs scalefont setfont
+  Show
+} bind def
+
+/K {
+  false UL
+  false BX
+  fCourier-Bold bfs scalefont setfont
+  Show
+} bind def
+
+/c {
+  false UL
+  false BX
+  fCourier-Oblique bfs scalefont setfont
+  Show
+} bind def
+
+/C {
+  false UL
+  false BX
+  fCourier-BoldOblique bfs scalefont setfont
+  Show 
+} bind def
+
+/l {
+  false UL
+  false BX
+  fHelvetica bfs scalefont setfont
+  Show
+} bind def
+
+/L {
+  false UL
+  false BX
+  fHelvetica-Bold bfs scalefont setfont
+  Show 
+} bind def
+
+/str{
+  false UL
+  false BX
+  fTimes-Roman bfs scalefont setfont
+  Show
+} bind def
+
+/e{
+  false UL
+  true BX
+  fHelvetica-Bold bfs scalefont setfont
+  Show
+} bind def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier
+%%IncludeResource: font Courier-Oblique
+%%IncludeResource: font Courier-Bold
+%%IncludeResource: font Times-Roman
+%%IncludeResource: font Symbol
+%%IncludeResource: font Courier-BoldOblique
+%%BeginResource: encoding ISO-8859-1Encoding
+/ISO-8859-1Encoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quoteright 
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash 
+/zero /one /two /three /four /five /six /seven 
+/eight /nine /colon /semicolon /less /equal /greater /question 
+/at /A /B /C /D /E /F /G 
+/H /I /J /K /L /M /N /O 
+/P /Q /R /S /T /U /V /W 
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore 
+/quoteleft /a /b /c /d /e /f /g 
+/h /i /j /k /l /m /n /o 
+/p /q /r /s /t /u /v /w 
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/space /exclamdown /cent /sterling /currency /yen /brokenbar /section 
+/dieresis /copyright /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron 
+/degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /bullet 
+/cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown 
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla 
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis 
+/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply 
+/Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls 
+/agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla 
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis 
+/eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide 
+/oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis 
+] def
+%%EndResource
+% Initialize page description variables.
+/sh 595 def
+/sw 842 def
+/llx 24 def
+/urx 818 def
+/ury 571 def
+/lly 24 def
+/#copies 1 def
+%% Pagedevice definitions:
+countdictstack
+% Push our own mark, since there can be several PS marks pushed depending
+% where the failure really occured.
+/a2ps_mark
+{
+%%BeginFeature: *Tumble False
+  (<<) cvx exec /Tumble (false) cvx exec (>>) cvx exec setpagedevice
+%%EndFeature
+%%BeginFeature: *Duplex True
+  (<<) cvx exec /Duplex (true) cvx exec (>>) cvx exec setpagedevice
+%%EndFeature
+} stopped
+% My cleartomark
+{ /a2ps_mark eq { exit } if } loop
+countdictstack exch sub dup 0 gt
+{
+  { end } repeat
+}{
+  pop
+} ifelse
+/th 15.000000 def
+/fnfs 11 def
+/bfs 8.005733 def
+/cw 4.803440 def
+
+% Dictionary for ISO-8859-1 support
+/iso1dict 8 dict begin
+  /fCourier ISO-8859-1Encoding /Courier reencode_font
+  /fCourier-Bold ISO-8859-1Encoding /Courier-Bold reencode_font
+  /fCourier-BoldOblique ISO-8859-1Encoding /Courier-BoldOblique reencode_font
+  /fCourier-Oblique ISO-8859-1Encoding /Courier-Oblique reencode_font
+  /fHelvetica ISO-8859-1Encoding /Helvetica reencode_font
+  /fHelvetica-Bold ISO-8859-1Encoding /Helvetica-Bold reencode_font
+  /fTimes-Bold ISO-8859-1Encoding /Times-Bold reencode_font
+  /fTimes-Roman ISO-8859-1Encoding /Times-Roman reencode_font
+currentdict end def
+/bgcolor [ 0 0 0 ] def
+/bg false def
+/ul false def
+/bx false def
+% The font for line numbering
+/f# /Helvetica findfont bfs .6 mul scalefont def
+/fSymbol /Symbol findfont def
+/hm fnfs 0.25 mul def
+/pw
+   cw 81.400000 mul
+def
+/ph
+   501.959430 th add
+def
+/pmw urx llx sub pw 2 mul sub 1 div def
+/pmh 0 def
+/v 0 def
+/x [
+  0
+  dup pmw add pw add
+] def
+/y [
+  pmh ph add 0 mul ph add
+  dup
+] def
+/scx sw 2 div def
+/scy sh 2 div def
+/snx urx def
+/sny lly 2 add def
+/dx llx def
+/dy sny def
+/fnx scx def
+/fny dy def
+/lx snx def
+/ly ury fnfs 0.8 mul sub def
+/sx 0 def
+/tab 8 def
+/x0 0 def
+/y0 0 def
+%%EndSetup
+
+%%Page: (1-2) 1
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(;MasterMind) c n
+() p n
+(;Andre Afonso Nunes Silva - 89408) c n
+(;Rafael Nunes Henriques   - 89530) N
+() p n
+(;Projeto desenvolvido na Unidade Curricular de Introducao a Arquitetura de Compu) c n
+(tadores) N
+() p n
+() N
+() N
+(;----------------------------------------------------) c n
+(;) S 8 T () S 16 T () S 24 T () S 32 T (CONSTANTES) N
+(;----------------------------------------------------) N
+() p n
+(SP_INICIAL) S 16 T () S 24 T () S 32 T () S 40 T () S
+(EQU) K
+() p 48 T () S 56 T (FDFFh) N
+(MASCARA_RANDOM) S 16 T () S 24 T () S 32 T () S
+(EQU) K
+( ) p 40 T (1000000000010110b) S 64 T () S 72 T () S
+(;mascara) c n
+( para a funcao random) N
+(STR) K
+(_END ) p 16 T () S 24 T () S 32 T () S 40 T () S
+(EQU) K
+( ) p 48 T ('@' ) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;fim das strings) c n
+(clrscreen ) p 16 T () S 24 T () S 32 T () S 40 T () S
+(EQU) K
+( ) p 48 T (' ') S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;espaco em branco para clrscr) c n
+(INT) K
+(_MASK_ADDR) p 16 T () S 24 T () S 32 T () S
+(EQU) K
+( ) p 40 T (FFFAh) N
+(IO_DISPLAY_1) S 16 T () S 24 T () S 32 T () S
+(EQU) K
+( ) p 40 T (FFF0h) N
+(IO_DISPLAY_2) S 16 T () S 24 T () S 32 T () S
+(EQU) K
+( ) p 40 T (FFF1h) N
+(IO_DISPLAY_3) S 16 T () S 24 T () S 32 T () S
+(EQU) K
+( ) p 40 T (FFF2h) N
+(IO_DISPLAY_4) S 16 T () S 24 T () S 32 T () S
+(EQU) K
+( ) p 40 T (FFF3h) N
+(LCD_CTRL) S 16 T () S 24 T () S 32 T () S 40 T () S
+(EQU) K
+( ) p 48 T (FFF4h) N
+(LCD_DISPLAY) S 16 T () S 24 T () S 32 T () S 40 T () S
+(EQU) K
+( ) p 48 T (FFF5h) N
+(TEMP_COUNT ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(EQU) K
+( ) p 48 T (FFF6h) N
+(TEMP_CTRL ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(EQU) K
+( ) p 48 T (FFF7h) N
+(LEDS ) S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(EQU) K
+( ) p 48 T (FFF8h) N
+(IO_CURSOR) S 16 T () S 24 T () S 32 T () S 40 T () S
+(EQU) K
+() p 48 T () S 56 T (FFFCh) N
+(IO_WRITE) S 16 T () S 24 T () S 32 T () S 40 T () S
+(EQU) K
+( ) p 48 T (FFFEh) N
+() N
+(;----------------------------------------------------) c n
+(;) S 8 T () S 16 T () S 24 T () S 32 T (VARIAVEIS) N
+(;----------------------------------------------------) N
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ORIG) K
+( ) p 56 T (8000h) N
+() N
+(ni_random) S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+( ) p 48 T (0) N
+(jogada ) S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+(  ) p 48 T (0) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;guarda jogada) c n
+(codigo ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+( ) p 48 T (0) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;guarda codigo) c n
+(resultado ) p 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+( ) p 48 T (0) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;guarda comparacao) c n
+(n_jogadas) p 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+() p 48 T (0) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;pontuacao atual) c n
+(highscore) p 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+() p 48 T (15) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;highscore) c n
+(limite ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+( ) p 48 T (12) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;limite jogadas num jogo) c n
+(cursor ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+( ) p 48 T (0000h) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;posicao cursor) c n
+(ganhou ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+( ) p 48 T (0 ) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;flag) c n
+() p n
+(;________________strings_____________________________) c n
+() p n
+(menu_inicial ) S 16 T () S 24 T () S 32 T () S
+(STR) K
+( ) p 40 T ('Carregue no botao IA para iniciar', ) S
+(STR) K
+() p n
+(_END) N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 1/16) (nov 28, 17 17:15) title
+border
+/v 1 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(highscore_string) p 24 T () S 32 T () S
+(STR) K
+( ) p 40 T ('HIGHSCORE:', ) S
+(STR) K
+(_END) p n
+(menu_final) S 16 T () S 24 T () S 32 T () S 40 T () S
+(STR) K
+( ) p 48 T ('Fim do Jogo   Carregue em IA pa) N
+(ra recomecar ou em IB para sair', ) S
+(STR) K
+(_END) p n
+(creditos ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(STR) K
+( ) p 48 T ('Creditos:', ) S
+(STR) K
+(_END) p n
+(Andre ) S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(STR) K
+( ) p 48 T ('Andre Afonso Nunes Silva - 8940) N
+(8', ) S
+(STR) K
+(_END) p n
+(Rafael ) S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(STR) K
+( ) p 48 T ('Rafael Nunes Henriques   - 8953) N
+(0', ) S
+(STR) K
+(_END) p n
+(perdeu_str ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(STR) K
+( ) p 48 T ('PERDEU', ) S
+(STR) K
+(_END) p n
+(ganhou_str ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(STR) K
+( ) p 48 T ('GANHOU', ) S
+(STR) K
+(_END) p n
+() N
+(;________________end_interrupcoes____________________) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ORIG) K
+( ) p 56 T (FE01h) N
+() N
+(INT) K
+(1) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+() p 48 T () S
+(INT) K
+(1F) p n
+(INT) K
+(2) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+() p 48 T () S
+(INT) K
+(2F) p n
+(INT) K
+(3) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+() p 48 T () S
+(INT) K
+(3F) p n
+(INT) K
+(4) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+() p 48 T () S
+(INT) K
+(4F) p n
+(INT) K
+(5) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+() p 48 T () S
+(INT) K
+(5F) p n
+(INT) K
+(6) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+() p 48 T () S
+(INT) K
+(6F) p n
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ORIG) K
+( ) p 56 T (FE0Ah) N
+() N
+(INT) K
+(10 ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+( ) p 48 T () S
+(INT) K
+(10F) p n
+(INT) K
+(11 ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+( ) p 48 T () S
+(INT) K
+(11F) p n
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ORIG) K
+( ) p 56 T (FE0Fh) N
+() N
+(INT) K
+(15 ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(WORD) K
+( ) p 48 T () S
+(INT) K
+(15F) p n
+() N
+() N
+(;----------------------------------------------------) c n
+(;) S 8 T () S 16 T () S 24 T () S 32 T (CODIGO) N
+(;----------------------------------------------------) N
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ORIG) K
+( ) p 56 T (0000h) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, SP_INICIAL) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (SP, R7) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;inicializa SP) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, FFFFh) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_CURSOR], R7 ) S 80 T () N
+() S 0 T () S
+(;inicializa cursor IO) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP) K
+( ) p 56 T (INICIO_JOGO) N
+() N
+(;----------------------------------------------------) c n
+(;) S 8 T () S 16 T () S 24 T () S 32 T (INTERRUPCOES) N
+(;----------------------------------------------------) N
+() p n
+(;_____________int_jogada____________________________) c n
+(;) N
+(;Colocam o digito correspondente a interrupcao no registos) N
+(; onde esta a ser guardada a jogada) N
+() p n
+(INT) K
+(1F: ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(SHL) K
+( ) p 48 T (R1, 3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R1, 1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RTI) K n
+() p n
+(INT) K
+(2F: ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(SHL) K
+( ) p 48 T (R1, 3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R1, 2) N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 2/16) (nov 28, 17 17:15) title
+border
+grestore
+(Printed by Andr\351) rhead
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (1/8) (ter\347a-feira novembro 28, 2017) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (3-4) 2
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RTI) K n
+() p n
+(INT) K
+(3F: ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(SHL) K
+( ) p 48 T (R1, 3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R1, 3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RTI) K n
+() p n
+(INT) K
+(4F: ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(SHL) K
+( ) p 48 T (R1, 3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R1, 4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RTI) K n
+() p n
+(INT) K
+(5F: ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(SHL) K
+( ) p 48 T (R1, 3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R1, 5) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RTI) K n
+() p n
+(INT) K
+(6F: ) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(SHL) K
+( ) p 48 T (R1, 3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R1, 6) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RTI) K n
+() p n
+() N
+() N
+(INT) K
+(10F: ) p 16 T () S 24 T () S 32 T () S 40 T () S
+(INC) K
+( ) p 48 T (R6) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;flag) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RTI) K n
+() p n
+(INT) K
+(11F: ) p 16 T () S 24 T () S 32 T () S 40 T () S
+(DEC) K
+( ) p 48 T (R6) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;flag) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RTI) K n
+() p n
+(INT) K
+(15F: ) p 16 T () S 24 T () S 32 T () S 40 T () S
+(INC) K
+( ) p 48 T (R3) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;flag) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R6, R0) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;se ja tiver chegado ao fim nao precisa de contar mais tempo) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+() p 56 T (salta) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, 5) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+() p 56 T () S 64 T (M[TEMP_COUNT], R) N
+(7) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, 1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[TEMP_CTRL], R7) S 80 T () N
+() S 0 T () S
+(;reinicializa contador para proximos 500ms) c n
+(salta:) p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(RTI) K n
+() p n
+(;----------------------------------------------------) c n
+(;) S 8 T () S 16 T () S 24 T () S 32 T (FUNCOES) N
+(;----------------------------------------------------) N
+() p n
+(;_______________clrscr_______________________________) c n
+(;) N
+(;Funcao que limpa ecra, imprimindo o caracter ' ' para todas) N
+(;) S 8 T (as posicoes) N
+(;) N
+(;Input: - Output: -) N
+() p n
+(clrscr: ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(PUSH) K
+( ) p 48 T (R1) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;cursor) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R2) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;caracter ' ') c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R3) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;contador) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R4) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;auxiliar) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R1, 0000h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R2, clrscreen) N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 3/16) (nov 28, 17 17:15) title
+border
+/v 1 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, 1896) N
+() N
+(ciclo_clrscr: ) S 16 T () S 24 T () S 32 T () S
+(CMP) K
+( ) p 40 T (R3, R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (fim_clrscr) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;imprime em todas as posicoes) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(DEC) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_CURSOR], R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_WRITE], R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R4, R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R4, 00FFh) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R4, 78) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;chegou ao fim da linha?) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (next_line_clrscr) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+() p 56 T () S 64 T (ciclo_clrscr) N
+() N
+(next_line_clrscr: ) S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (R4, R1) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;mete colunas a 0 e incrementa linha) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R4, FF00h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R4, 0100h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R1, R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_clrscr) N
+() N
+(fim_clrscr: ) S 16 T () S 24 T () S 32 T () S
+(POP) K
+( ) p 40 T (R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RET) K n
+() p n
+(;_______________print_str_______________________________) c n
+(;) N
+(;Funcao que escreve uma string no ecra, comecando na) N
+(;) S 8 T (posicao que recebe como argumento) N
+(;) N
+(;Input: string, posicao cursor Output: -) N
+() p n
+(print_str: ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(PUSH) K
+( ) p 48 T (R1) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;caracter a imprimir) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R2 ) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;cursor string) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R3) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;cursor IO) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R4) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;auxiliar) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R2, M[SP+7]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, M[SP+6]) N
+() N
+(ciclo_prtstr: ) S 16 T () S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (R1, M[R2]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R1, ) S
+(STR) K
+(_END) p 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;ve se chegou ao fim da str) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (fim_prtstr) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+() p 56 T () S 64 T (M[IO_CURSOR], R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_WRITE], R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R4, R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R4, 00FFh) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R4, 78) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;chegou ao fim da linha?) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (next_line_prtscr) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_prtstr) N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 4/16) (nov 28, 17 17:15) title
+border
+grestore
+(Printed by Andr\351) rhead
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (2/8) (ter\347a-feira novembro 28, 2017) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (5-6) 3
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p n
+(next_line_prtscr: ) S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (R4, R3) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;coluna a zero, linhas + 1) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R4, FF00h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R4, 0100h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_prtstr) N
+() N
+(fim_prtstr: ) S 16 T () S 24 T () S 32 T () S
+(POP) K
+( ) p 40 T (R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RETN) K
+( ) p 56 T (2) N
+() N
+(;_______________print_texto_LCD___________________) c n
+(;) N
+(;Funcao que inicializa o LCD e imprime "Highscore:  --") N
+(;) N
+(;Input: - Output: -) N
+() p n
+(print_texto_LCD: ) S 24 T () S 32 T () S
+(PUSH) K
+( ) p 40 T (R1) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;cursor LCD) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R2) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;cursor da string) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R3) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;auxiliar string) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R1, 8000h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R2, highscore_string) N
+() N
+(ciclo_texto_LCD:) S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (R3, M[R2]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R3, ) S
+(STR) K
+(_END) p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+() p 56 T (fim_texto_LCD) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LCD_CTRL], R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LCD_DISPLAY], R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_texto_LCD) N
+() N
+(fim_texto_LCD: ) S 16 T () S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (R1, 800Ch) S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;posicao dos algarismos) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, '-') N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LCD_CTRL], R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LCD_DISPLAY], R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LCD_CTRL], R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LCD_DISPLAY], R3) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R1) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RET) K n
+() p n
+(;_______________atualiza_LCD___________________) c n
+(;) N
+(;Funcao que atualiza o valor impresso no LCD) N
+(;) N
+(;Input: inteiro Output: -) N
+() p n
+(atualiza_LCD:) S 16 T () S 24 T () S 32 T () S
+(PUSH) K
+() p 40 T (R1 ) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;valor a imprimir) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R2) S 64 T () S 72 T () S 80 T () N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 5/16) (nov 28, 17 17:15) title
+border
+/v 1 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 0 T () S 8 T () S 16 T () S
+(;dezenas) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R3) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;auxiliar) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+(     R1, M[SP+5]) p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, R0) N
+() N
+(ciclo_atlz_LCD:) S 16 T () S 24 T () S 32 T () S
+(CMP) K
+( ) p 40 T (R1, 10) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.N) K
+(  ) p 56 T (print_n_LCD) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;se for menor que 10 imprime) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+() p 56 T () S 64 T (R2) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S 24 T () S
+(;dezenas) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(SUB) K
+( ) p 56 T (R1,10) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_atlz_LCD) N
+() N
+(print_n_LCD:) S 16 T () S 24 T () S 32 T () S
+(ADD) K
+( ) p 40 T (R2, 48) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;converte em ASCII) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R1, 48) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, 800Ch) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LCD_CTRL], R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LCD_DISPLAY],R2) S 80 T () N
+() S 0 T () S
+(;imprime dezenas) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LCD_CTRL], R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LCD_DISPLAY],R1) S 80 T () N
+() S 0 T () S
+(;impime unidades) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+() p 56 T () S 64 T (R1) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RETN) K
+( ) p 56 T (1) N
+() N
+(;_______________input_jogada___________________) c n
+(;) N
+(;Funcao que espera pela jogada do jogador e) N
+(;) S 8 T (devolve o input \(jogada\)) N
+(;) N
+(;Input: - Output: jogada) N
+() p n
+(input_jogada:) S 16 T () S 24 T () S 32 T () S
+(PUSH) K
+( ) p 40 T (R1) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;jogada) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R2) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;auxiliar) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R3) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;flag do temporizador) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R6) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;estado dos leds) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R7) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;auxiliar) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, 807Eh) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[) S
+(INT) K
+(_MASK_ADDR], R7 ) p 80 T () S
+() c n
+(;mascara interrutores) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R6, FFFFh) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LEDS], R6) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;inicializa leds) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R1, R0) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;inicializa jogada) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, R0) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;flag a 0) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ENI) K n
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 6/16) (nov 28, 17 17:15) title
+border
+grestore
+(Printed by Andr\351) rhead
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (3/8) (ter\347a-feira novembro 28, 2017) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (7-8) 4
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, 5) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+() p 56 T () S 64 T (M[TEMP_COUNT], R) N
+(7) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, 1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[TEMP_CTRL], R7) S 80 T () N
+() S 0 T () S
+(;inicializa contador) c n
+() p n
+(ciclo_input:) S 16 T () S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (R2, R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R2, 0000111000000000b) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R2, R0) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;verifica se ja foram) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP.NZ) K
+() p 56 T (controlo_input) S 72 T () S 80 T () N
+() S 0 T () S
+(;introduzidos 4 algarismos) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R3, 1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.N) K
+() p 56 T (ciclo_input) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;ja passou 500ms?) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R6, R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP.Z) K
+() p 56 T (controlo_input) S 72 T () S 80 T () N
+() S 0 T () S
+(;ja acabou o tempo?) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(SHR) K
+( ) p 56 T (R6, 1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LEDS], R6) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_input) N
+() N
+(controlo_input:) S 16 T () S 24 T () S 32 T () S
+(CMP) K
+( ) p 40 T (R2, R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.NZ) K
+( ) p 56 T (fim_input) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;foram introduzidos 4 algarismos?) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R1, R0) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;se nao mete a 0) c n
+() p n
+(fim_input:) S 16 T () S 24 T () S 32 T () S 40 T () S
+(DSI) K n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[SP+7], R1) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;guarda jogada introduzida) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[LEDS], R0) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;apaga os LEDS) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R7) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+() p 56 T () S 64 T (R6) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R1) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RET) K n
+() p n
+(;_______________random_______________________________) c n
+(;) N
+(;Funcao que gera um codigo pseudo-aleatorio) N
+(;) N
+(;Input: ni_inicial Output: ni_final , codigo) N
+() p n
+(random:) S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(PUSH) K
+( ) p 48 T (R4 ) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;guarda os registos utilizados) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R7) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R6) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R6, 4) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;contador) c n
+() p n
+(random_loop: ) S 16 T () S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (R4, M[SP+5]) S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;ni inicial) N
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R4, 0001h) S 72 T () S 80 T () N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 7/16) (nov 28, 17 17:15) title
+border
+/v 1 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 0 T () S 8 T () S
+(;if\(n0 == 0\)) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R4, R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP.Z) K
+( ) p 56 T (random_zero) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP) K
+( ) p 56 T (random_else) N
+() N
+(random_zero: ) S 16 T () S 24 T () S 32 T () S
+(ROR) K
+( ) p 40 T (M[SP+5], 1) S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;rotate_right\(ni\)) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP) K
+( ) p 56 T (random_divisao) N
+() N
+(random_else: ) S 16 T () S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (R4, M[SP+5]) S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;rotate_right\(xor\(ni,mascara\)\)) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(XOR) K
+( ) p 56 T (R4, MASCARA_RANDOM) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ROR) K
+( ) p 56 T (R4, 1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[SP+5], R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP) K
+( ) p 56 T (random_divisao) N
+() N
+(random_divisao: ) S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (R4, M[SP+5]) S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;divisao de ni por M\(6\) para retirar o resto\(algarismo\)) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, 6) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(DIV) K
+( ) p 56 T (R4, R7) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R7) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;resto da divisao por M\(6\) da um valor entre 0 e 5, logo e preci) c n
+(so incrementar por 1) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (M[SP+6], R7) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(DEC) K
+( ) p 56 T (R6) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;ja fez os 4?) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R6, R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP.Z) K
+(  ) p 56 T (random_fim) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(SHL) K
+() p 56 T () S 64 T (M[SP+6], 3) S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;continua para o proximo) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP) K
+( ) p 56 T (random_loop) N
+() N
+(random_fim: ) S 16 T () S 24 T () S 32 T () S
+(POP) K
+( ) p 40 T (R6) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;reposicao dos registos utlizados) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R7) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R4) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RET) K n
+() p n
+(;_______________sete_seg_______________________________) c n
+(;) N
+(;Funcao que atualiza o display de 7 segmentos \(n jogadas atual\)) N
+(;) N
+(;Input: inteiro Output: -) N
+() p n
+(sete_seg:) S 16 T () S 24 T () S 32 T () S 40 T () S
+(PUSH) K
+( ) p 48 T (R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R2) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R1, M[SP+4]) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;valor a imprimir) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R2, R0 ) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;dezenas) c n
+() p n
+(ciclo_sete_seg:) S 16 T () S 24 T () S 32 T () S
+(CMP) K
+( ) p 40 T (R1, 10 ) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;separa numero para imprimir) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP.NN) K
+( ) p 56 T (maior_10) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(; em decimal) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP) K
+( ) p 56 T (print_sete_seg) N
+() N
+(maior_10: ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(INC) K
+( ) p 48 T (R2) N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 8/16) (nov 28, 17 17:15) title
+border
+grestore
+(Printed by Andr\351) rhead
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (4/8) (ter\347a-feira novembro 28, 2017) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (9-10) 5
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(SUB) K
+( ) p 56 T (R1, 10) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP) K
+( ) p 56 T (ciclo_sete_seg) N
+() N
+(print_sete_seg:) S 16 T () S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (M[IO_DISPLAY_4], R0) S 64 T () S 72 T () S
+(;limpa) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_DISPLAY_3], R0) S 80 T () N
+() S 0 T () S
+(;limpa) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_DISPLAY_2], R2) S 80 T () N
+() S 0 T () S
+(;print dezenas) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_DISPLAY_1], R1) S 80 T () N
+() S 0 T () S
+(;print unidades) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R1) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RETN) K
+( ) p 56 T (1) N
+() N
+(;_______________verifica_______________________________) c n
+(;) N
+(;Funcao que compara a jogada com o codigo) N
+(; ) S 8 T (Tem duas funcoes auxiliares para verificar os certos e os existentes) N
+(;) N
+(;Input: jogada, codigo Output: resultado) N
+() p n
+(verifica: ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(PUSH) K
+( ) p 48 T (R1) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;codigo) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R2) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;jogada) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R3) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;guarda resultado) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R1, M[SP+6]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R2, M[SP+5]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, R0) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (ver_x) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R3) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;resultado) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R2) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;jogada sem os certos) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R1) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;codigo sem os certos) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (ver_o) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[SP+7], R3) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R1) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RETN) K
+( ) p 56 T (2) N
+() N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 9/16) (nov 28, 17 17:15) title
+border
+/v 1 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(ver_x:) p 8 T () S 16 T ( ) S 24 T () S 32 T () S 40 T () S
+(PUSH) K
+( ) p 48 T (R1) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;codigo) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R2) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;jogada) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R3) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;guarda resultado) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R4 ) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;digito 1) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R5) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;digito 2) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R6) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;contador) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R1, M[SP+10]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R2, M[SP+9]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, M[SP+8]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R6, R0) N
+() N
+(loop_ver_x: ) S 16 T () S 24 T () S 32 T () S
+(CMP) K
+( ) p 40 T (R6, 4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (fim_ver_x) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;roda 4 vezes) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R4, R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R4, 0007h) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;isola algarismos direita) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R5, R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R5, 0007h) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R5, R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.NZ) K
+( ) p 56 T (continua_x) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ROL) K
+( ) p 56 T (R3, 2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R1, FFF8h) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;apaga alagarimos) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R2, FFF8h) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;apaga algarismos) c n
+() p n
+(continua_x: ) S 16 T () S 24 T () S 32 T () S
+(ROR) K
+( ) p 40 T (R1, 3) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;proximos 2 digitos) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ROR) K
+( ) p 56 T (R2, 3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R6) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (loop_ver_x) N
+() N
+(fim_ver_x: ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(ROR) K
+( ) p 48 T (R1, 4) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;coloca codigo e jogada na posicao certa) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ROR) K
+( ) p 56 T (R2, 4) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[SP+11], R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[SP+12], R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[SP+13], R1 ) S 72 T () S 80 T () N
+() S 0 T () S
+(;mete resultados na stack) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R6) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R5) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R1) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RETN) K
+( ) p 56 T (3) N
+() N
+(ver_o: ) S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(PUSH) K
+( ) p 48 T (R1) S 56 T () S 64 T () S 72 T () S 80 T () N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 10/16) (nov 28, 17 17:15) title
+border
+grestore
+(Printed by Andr\351) rhead
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (5/8) (ter\347a-feira novembro 28, 2017) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (11-12) 6
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 0 T () S 8 T () S
+(;codigo) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R2) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;jogada) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R3) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;resultado) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R4 ) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;digito 1) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R5) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;digito 2) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R6) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;contador) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R1, M[SP+10]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R2, M[SP+9]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, M[SP+8]) N
+() N
+(ciclo_codigo: ) S 16 T () S 24 T () S 32 T () S
+(CMP) K
+( ) p 40 T (R1, R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (fim_ver_o) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;salta se ja encontrou 4 correspondencias) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R4, R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R4, 0007h) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;isola o algarismo da direita) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R4, R0) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;se estiver a 0 poupa verificacao) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (fim_ciclo_cod) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R6, R0 ) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;contador) c n
+() p n
+(ciclo_jogada: ) S 16 T () S 24 T () S 32 T () S
+(CMP) K
+( ) p 40 T (R6, 4) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;ja viu os 4 algarismos) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (fim_ciclo_jog) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R5, R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R5, 0007h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R5, R0) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;se estiver a 0 passa para proximo) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (proximo_digito_jog) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R5, R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.NZ) K
+( ) p 56 T (proximo_digito_jog) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ROL) K
+( ) p 56 T (R3, 2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R3, 2) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;encontrou correspondencia) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R1, FFF8h) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;apaga digitos direita) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R2, FFF8h) N
+() N
+(proximo_digito_jog:) S 24 T () S 32 T () S
+(ROR) K
+( ) p 40 T (R2, 3) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;proximo digito jogada) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R6) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;contador aumenta) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_jogada) N
+() N
+(fim_ciclo_jog:) S 16 T ( ) S 24 T () S 32 T () S
+(ROR) K
+( ) p 40 T (R2, 4) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;reposiciona os bits da jogada) N
+() p n
+(fim_ciclo_cod: ) S 16 T () S 24 T () S 32 T () S
+(SHR) K
+( ) p 40 T (R1, 3) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;proximo digito codigo) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_codigo) N
+() N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 11/16) (nov 28, 17 17:15) title
+border
+/v 1 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+(fim_ver_o: ) p 16 T () S 24 T () S 32 T () S 40 T () S
+(MOV) K
+( ) p 48 T (M[SP+11], R3 ) S 64 T () S 72 T () S 80 T () S
+() c n
+(;guarda resultado) N
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R6) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R5) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R1) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RETN) K
+( ) p 56 T (3) N
+() N
+(;_______________print_resultado_______________________________) c n
+(;) N
+(;Funcao que imprime jogada e o resultado da comparacao) N
+(;) N
+(;Input: cursor, resultado, jogada Output: cursor) N
+() p n
+(print_resultado: ) S 24 T () S 32 T () S
+(PUSH) K
+() p 40 T (R1) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;cursor) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+() p 56 T (R2) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;resultado) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R3) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;jogada) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R4) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;contador) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R5) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;auxiliar) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R1, M[SP+9]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R1, 0100h ) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;imprime na linha seguinte) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R1, FF00h ) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(; na primeira coluna) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R2, M[SP+8]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R3, M[SP+7]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R4, R0) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ROL) K
+( ) p 56 T (R3, 4) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;coloca jogada em posicao para imprimir) c n
+() p n
+(ciclo_prt_jog: ) S 16 T () S 24 T () S 32 T () S
+(CMP) K
+( ) p 40 T (R4, 4) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;ja imprimiu os 4?) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (prt_xo) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ROL) K
+( ) p 56 T (R3, 3) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;proximo digito) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R5, R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R5, 0007h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ADD) K
+( ) p 56 T (R5, 48) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_CURSOR], R1) S 80 T () N
+() S 0 T () S
+(;imprime alagrismo) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_WRITE], R5) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R1) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;proxima coluna) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R4) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;aumenta contador) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_prt_jog) N
+() N
+(prt_xo: ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(MOV) K
+( ) p 48 T (R5, clrscreen) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_CURSOR], R1) N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 12/16) (nov 28, 17 17:15) title
+border
+grestore
+(Printed by Andr\351) rhead
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (6/8) (ter\347a-feira novembro 28, 2017) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (13-14) 7
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_WRITE], R5) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_CURSOR], R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_WRITE], R5) S 72 T () S 80 T () N
+() S 0 T () S
+(;dois espacos em branco) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R4, R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ROL) K
+( ) p 56 T (R2, 8) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;prepara resultado para imprimir) c n
+(ciclo_posiciona: ) p 24 T () S 32 T () S
+(CMP) K
+( ) p 40 T (R4, 4) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;se rodou 4 vezes ja esta posicionado) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (salta_posiciona) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R5, R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R5, C000h) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;isola os dois ultimos bits) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R5, R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.NZ) K
+( ) p 56 T (salta_posiciona) S 72 T () S 80 T () N
+() S 0 T () S
+(;se n e zero entao ja esta posicionado) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ROL) K
+( ) p 56 T (R2, 2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_posiciona) N
+() N
+(salta_posiciona:) S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (R4, R0) N
+() N
+(ciclo_prt_xo:) S 16 T ( ) S 24 T () S 32 T () S
+(CMP) K
+( ) p 40 T (R4, 4 ) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;ja imprimiu os 4?) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP.Z) K
+( ) p 56 T (fim_prt_res) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ROL) K
+() p 56 T () S 64 T (R2, 2) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S 16 T () S
+(;proximos 2 bits) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R5, R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(AND) K
+( ) p 56 T (R5, 0003h ) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;isola os dois bits) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R5, 0001h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (print_x) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;se for zero, algarismo e 1, imprime 'x') c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.P) K
+( ) p 56 T (print_o ) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;se for positivo, algarismo e 2, imprime 'o') c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (print_traco ) S 80 T () N
+() S 0 T () S 8 T () S
+(;se for negativo, algarismo e 0, imprime '-') c n
+() p n
+(print_x: ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(MOV) K
+( ) p 48 T (R5, 'x') S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;imprime 'x') c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_CURSOR], R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_WRITE], R5) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_prt_xo) N
+() N
+(print_o: ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(MOV) K
+( ) p 48 T (R5, 'o') S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;imrprime 'o') c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_CURSOR], R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_WRITE], R5) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (ciclo_prt_xo) N
+() N
+(print_traco: ) S 16 T () S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (R5, '-') S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;imprime '-') N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_CURSOR], R1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[IO_WRITE], R5) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R1) N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 13/16) (nov 28, 17 17:15) title
+border
+/v 1 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP) K
+() p 56 T () S 64 T (ciclo_prt_xo) N
+() N
+(fim_prt_res: ) S 16 T () S 24 T () S 32 T () S
+(MOV) K
+( ) p 40 T (M[SP+10], R1 ) S 56 T () S 64 T () S 72 T () S
+(;guarda ) c n
+(cursor) N
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R5) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R4) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R3) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R2) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (R1) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(RETN) K
+( ) p 56 T (3) N
+() N
+() N
+(;----------------------------------------------------) c n
+(;) S 8 T () S 16 T () S 24 T () S 32 T (CORPO PRINCIPAL) N
+(;----------------------------------------------------) N
+() p n
+(INICIO_JOGO:) S 16 T () S 24 T () S 32 T () S
+(CALL) K
+( ) p 40 T (clrscr) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;limpa ecra) N
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (print_texto_LCD) S 72 T () S 80 T () N
+() S 0 T () S
+(;inicializa LCD) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (menu_inicial) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (0000h ) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;posicao inicial cursos) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (print_str) N
+() N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, 0400h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[) S
+(INT) K
+(_MASK_ADDR], R7) p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ENI) K n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R6, R0) N
+(ciclo_IA:) S 16 T () S 24 T () S 32 T () S 40 T () S
+(INC) K
+( ) p 48 T (M[ni_random]) S 64 T () S 72 T () S 80 T () S
+() c n
+(;incrementa o ni enquanto espera pela interrupcao) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R6, 1) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.NZ) K
+( ) p 56 T (ciclo_IA) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(DSI) K n
+() p n
+(JOGO_NOVO:) S 16 T () S 24 T () S 32 T () S 40 T () S
+(PUSH) K
+( ) p 48 T (R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (M[ni_random]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (random ) S 64 T () S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;gera codigo) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (M[ni_random]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (M[codigo]) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (clrscr) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[n_jogadas], R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (M[n_jogadas]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (sete_seg) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;inicializa display 7 segmentos) c n
+() p n
+(INICIO_JOGADA: ) S 16 T () S 24 T () S 32 T () S
+(PUSH) K
+() p 40 T (R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (input_jogada) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (M[jogada] ) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;recebe jogada) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (M[jogada], R0) S 72 T () S 80 T () N
+() S 0 T () S
+(;verifica se foi introduzida) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP.Z) K
+( ) p 56 T (novo_jogo) S 72 T () S 80 T () N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 14/16) (nov 28, 17 17:15) title
+border
+grestore
+(Printed by Andr\351) rhead
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (7/8) (ter\347a-feira novembro 28, 2017) footer
+end % of iso1dict
+pagesave restore
+showpage
+%%Page: (15-16) 8
+%%BeginPageSetup
+/pagesave save def
+sh 0 translate 90 rotate
+%%EndPageSetup
+iso1dict begin
+gsave
+llx lly 12 add translate
+/v 0 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 0 T () S 8 T () S
+(;se for 0 o tempo acabou acaba o jogo) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+() p 56 T (M[codigo]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (M[jogada]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (verifica) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;compara jogada e codigo) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (M[resultado]) S 72 T () S 80 T () N
+() S 0 T () S
+(;recebe resultado) c n
+() p n
+(print_jogada:) S 16 T () S 24 T () S 32 T () S
+(PUSH) K
+( ) p 40 T (R0) S 48 T () S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;guarda espaco para cursor final) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (M[cursor]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (M[resultado]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (M[jogada]) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;codificado em 2 bits cada) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (print_resultado) S 72 T () S 80 T () N
+() S 0 T () S
+(;print jogada e do resultado) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(POP) K
+( ) p 56 T (M[cursor]) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(INC) K
+( ) p 56 T (M[n_jogadas]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, 0055h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (M[resultado], R7 ) S 80 T () N
+() S 0 T () S
+(;verifica se ganhou) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+() p 56 T (atualiza_highscore) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (M[n_jogadas]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (sete_seg ) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;atualiza display) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, M[n_jogadas]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R7, 12) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+() p 56 T (novo_jogo) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;se ja fez 12 jogadas) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[jogada], R0) S 72 T () S 80 T () N
+() S 0 T () S
+(;reinicializa jogada) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[resultado], R0) S 80 T () N
+() S 0 T () S
+(;reinicializa resultado) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP) K
+() p 56 T () S 64 T (INICIO_JOGADA) N
+() N
+(atualiza_highscore: ) S 24 T () S
+(INC) K
+( ) p 32 T (M[ganhou]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, M[n_jogadas]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R7, M[highscore]) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.NN) K
+( ) p 56 T (novo_jogo) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;se tiver feito highscore) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[highscore], R7) S 80 T () N
+() S 0 T () S
+(;atualiza highscore) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R7) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (atualiza_LCD) S 72 T () S 80 T () N
+() S 0 T () S
+(;atualiza LCD) c n
+() p n
+(novo_jogo: ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(CALL) K
+( ) p 48 T (clrscr ) S 56 T () S 64 T () S 72 T () S 80 T () N
+() S 0 T () S
+(;continua para menu final) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (M[ganhou], R0 ) S 72 T () S 80 T () N
+() S 0 T () S
+(;ganhou ou perdeu?) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (perdeu) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, ganhou_str) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[ganhou], R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR) K
+( ) p 56 T () S 64 T (salta_ganhou) N
+(perdeu: ) S 16 T () S 24 T () S 32 T () S 40 T () S
+(MOV) K
+( ) p 48 T (R7, perdeu_str) N
+(salta_ganhou: ) S 16 T () S 24 T () S 32 T () S
+(PUSH) K
+( ) p 40 T (R7) N
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 15/16) (nov 28, 17 17:15) title
+border
+/v 1 store
+/x0 x v get 3.362408 add sx cw mul add store
+/y0 y v get bfs th add sub store
+x0 y0 moveto
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (print_str) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;imprime GANHOU ou PERDEU no IO) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (menu_final) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (0100h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (print_str   ) S 72 T () S 80 T () N
+() S 0 T () S
+(;print menu final) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R7, 0C00h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[) S
+(INT) K
+(_MASK_ADDR], R7) p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(ENI) K n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (R6, R0) N
+(ciclo_IA_IB: ) S 16 T () S 24 T () S 32 T () S
+(CMP) K
+( ) p 40 T (R6, FFFFh ) S 56 T () S 64 T () S 72 T () S 80 T () S
+() c n
+(;escolheu IA ou IB?) N
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.Z) K
+( ) p 56 T (fim_creditos) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CMP) K
+( ) p 56 T (R6, 0001h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(BR.NZ) K
+( ) p 56 T (ciclo_IA_IB) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(DSI) K n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[jogada], R0 ) S 72 T () S 80 T () N
+() S 0 T () S
+(;repoe valores para novo jogo) c n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[codigo], R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[resultado], R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[n_jogadas], R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(MOV) K
+( ) p 56 T (M[cursor], R0) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(JMP) K
+( ) p 56 T (JOGO_NOVO) N
+() N
+(fim_creditos: ) S 16 T () S 24 T () S 32 T () S
+(DSI) K n
+() p 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (clrscr) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (creditos) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (R0) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (print_str ) S 72 T () S 80 T () N
+() S 0 T () S 8 T () S
+(;imprime creditos e acabou) c n
+() p n
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (Andre) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (0100h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (print_str) N
+() N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (Rafael) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(PUSH) K
+( ) p 56 T (0200h) N
+() S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S 48 T () S
+(CALL) K
+( ) p 56 T (print_str) N
+() N
+(Fim: ) S 8 T () S 16 T () S 24 T () S 32 T () S 40 T () S
+(BR) K
+( ) p 48 T () S 56 T (Fim) S
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (Page 16/16) (nov 28, 17 17:15) title
+border
+grestore
+(Printed by Andr\351) rhead
+(C:\\Users\\Andr\351\\Desktop\\p3print_win\\MasterMind_teste.as) (8/8) (ter\347a-feira novembro 28, 2017) footer
+end % of iso1dict
+pagesave restore
+showpage
+
+%%Trailer
+end
+%%EOF
