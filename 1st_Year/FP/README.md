@@ -8,5 +8,5 @@
 * Python
 
 ### Grade
-* Part 1: --
+* Part 1: 19.2/20
 * Part 2: --
