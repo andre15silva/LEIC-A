@@ -1,6 +1,6 @@
 # Licenciatura em Engenharia Informática e de Computadores - Instituto Superior Técnico
 
-Projects made for my Bsc in Information Systems and Computer Engeneering at Instituto Superior Técnico, Universidade de Lisboa.
+Projects made for my BSc in Information Systems and Computer Engeneering at Instituto Superior Técnico - Universidade de Lisboa.
 
 ### 1st Year
 
