@@ -7,7 +7,7 @@ Projects made for my BSc in Information Systems and Computer Engeneering at Inst
 * [FP - Fundamentos da Programação / Foundations of Programming (Python)](1st_Year/FP)
 * [IAC - Introdução à Arquitetura de Computadores / Introduction to Computer Architecture (P3's Assembly)](1st_Year/IAC)
 * [LP - Lógica para Programação / Logic for Programming (Prolog)](1st_Year/LP)
-* [IAED - Introdução aos Algoritmos e Estruturas de Dados / Introduction to Algorithms and Data Structures](1st_Year/IAED)
+* [IAED - Introdução aos Algoritmos e Estruturas de Dados / Introduction to Algorithms and Data Structures (C)](1st_Year/IAED)
 
 
 
