@@ -1,0 +1,27 @@
+[0m[[0m[0minfo[0m] [0m[0mPackaging /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/root-2-untyped_2.12-0.1.0-SNAPSHOT.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos/Abs$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos/Abs$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos/Var$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos/Var$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos/Term.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos/Term.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos/Abs.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos/Abs.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos/Untyped$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos/Untyped$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos/Untyped$NoReductionPossible$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos/Untyped$NoReductionPossible$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos/App.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos/App.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos/Var.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos/Var.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos/App$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos/App$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos/Untyped$NoReductionPossible.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos/Untyped$NoReductionPossible.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	fos/Untyped.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/classes/fos/Untyped.class[0m
+[0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m

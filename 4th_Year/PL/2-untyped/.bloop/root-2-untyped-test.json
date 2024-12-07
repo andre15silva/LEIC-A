@@ -1,0 +1,148 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "root-2-untyped-test",
+        "directory": "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped",
+        "workspaceDir": "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped",
+        "sources": [
+            "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/src/test/scala-2.12",
+            "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/src/test/scala",
+            "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/src/test/java",
+            "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/src_managed/test"
+        ],
+        "dependencies": [
+            "root-2-untyped"
+        ],
+        "classpath": [
+            "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/.bloop/root-2-untyped/scala-2.12/classes",
+            "/home/basslc/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.10.jar",
+            "/home/basslc/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/bundles/scala-parser-combinators_2.12-1.1.2.jar"
+        ],
+        "out": "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/.bloop/root-2-untyped",
+        "classesDir": "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/.bloop/root-2-untyped/scala-2.12/test-classes",
+        "resources": [
+            "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/src/test/resources",
+            "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/scala-2.12/resource_managed/test"
+        ],
+        "scala": {
+            "organization": "org.scala-lang",
+            "name": "scala-compiler",
+            "version": "2.12.10",
+            "options": [
+                
+            ],
+            "jars": [
+                "/home/basslc/.ivy2/cache/org.scala-lang/scala-compiler/jars/scala-compiler-2.12.10.jar",
+                "/home/basslc/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.10.jar",
+                "/home/basslc/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.12.10.jar",
+                "/home/basslc/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/bundles/scala-xml_2.12-1.0.6.jar",
+                "/home/basslc/.ivy2/cache/jline/jline/jars/jline-2.14.6.jar",
+                "/home/basslc/.ivy2/cache/org.fusesource.jansi/jansi/jars/jansi-1.12.jar"
+            ],
+            "analysis": "/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped/target/streams/test/bloopAnalysisOut/$global/streams/inc_compile_2.12.zip",
+            "setup": {
+                "order": "mixed",
+                "addLibraryToBootClasspath": true,
+                "addCompilerToClasspath": false,
+                "addExtraJarsToClasspath": false,
+                "manageBootClasspath": true,
+                "filterLibraryFromClasspath": true
+            }
+        },
+        "java": {
+            "options": [
+                
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "/usr/lib/jvm/openjdk11",
+                "options": [
+                    "-Duser.dir=/home/basslc/Work/Aulas/Ano4/Sem1/FS/2-untyped"
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.12.10",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/home/basslc/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.10.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/home/basslc/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.10-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang.modules",
+                    "name": "scala-parser-combinators_2.12",
+                    "version": "1.1.2",
+                    "artifacts": [
+                        {
+                            "name": "scala-parser-combinators_2.12",
+                            "path": "/home/basslc/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/bundles/scala-parser-combinators_2.12-1.1.2.jar"
+                        },
+                        {
+                            "name": "scala-parser-combinators_2.12",
+                            "classifier": "sources",
+                            "path": "/home/basslc/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/srcs/scala-parser-combinators_2.12-1.1.2-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "test"
+        ]
+    }
+}
