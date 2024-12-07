@@ -1,0 +1,184 @@
+//
+// Protocol buffers definition for Silo server
+//
+syntax = "proto3";
+package pt.tecnico.sauron.silo.grpc;
+
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+import "google/type/latlng.proto";
+
+message Id {
+    oneof id {
+        int64 personId = 1;
+        string carId = 2;
+    }
+}
+
+message CameraDto {
+    string name = 1;
+    google.type.LatLng coords = 2;
+}
+
+enum ObjectType {
+    INVALID = 0;
+    PERSON = 1;
+    CAR = 2;
+}
+
+message ObservationDto {
+    CameraDto camera = 1;
+    ObjectType type = 2;
+    Id id = 3;
+    google.protobuf.Timestamp timeStamp = 4;
+}
+
+message CtrlPingRequest {
+    string name = 1;
+}
+
+message CtrlPingResponse {
+    string state = 1;
+}
+
+message CtrlClearRequest {
+    // EMPTY
+}
+
+message CtrlClearResponse {
+    // EMPTY
+}
+
+message CtrlInitRequest {
+    // EMPTY
+}
+
+message CtrlInitResponse {
+    // EMPTY
+}
+
+message CamJoinRequest {
+    CameraDto camera = 1;
+}
+
+message CamJoinResponse {
+    // EMPTY
+}
+
+message CamInfoRequest {
+    CameraDto camera = 1;
+}
+
+message CamInfoResponse {
+    CameraDto camera = 1;
+}
+
+message ReportRequest {
+    string cameraName = 1;
+    repeated ObservationDto obs = 2;
+}
+
+message ReportResponse {
+    // EMPTY
+}
+
+message TrackRequest {
+    ObjectType type = 1;
+    Id id = 2;
+}
+
+message TrackResponse {
+    ObservationDto mostRecentObs = 1;
+}
+
+message TrackMatchRequest {
+    ObjectType type = 1;
+    string partialId = 2;
+}
+
+message TrackMatchResponse {
+    repeated ObservationDto unorderedObs = 1;
+}
+
+message TraceRequest {
+    ObjectType type = 1;
+    Id id = 2;
+}
+
+message TraceResponse {
+    repeated ObservationDto orderedObs = 1;
+}
+
+message UpdatePair {
+    int32 replicaId = 1;
+    repeated int64 vectorTimestamp = 2;
+}
+
+message Update {
+    UpdatePair updatePair = 1;
+    oneof object {
+        CameraDto camera = 2;
+        ObservationDto observation = 3;
+    }
+}
+
+message QueryReplicaRequest {
+    repeated int64 vectorTimestamp = 1;
+}
+
+message QueryReplicaResponse {
+    repeated int64 vectorTimestamp = 1;
+    repeated Update updates = 2;
+}
+
+message ClientQueryRequest {
+    repeated int64 prevVectorTimestamp = 1;
+    oneof object {
+        CamInfoRequest camInfoRequest = 2;
+        ReportRequest reportRequest = 3;
+        TrackRequest trackRequest = 4;
+        TrackMatchRequest trackMatchRequest = 5;
+        TraceRequest traceRequest = 6;
+    }
+}
+
+message ClientQueryResponse {
+    repeated int64 newVectorTimestamp = 1;
+    oneof object {
+        CamInfoResponse camInfoResponse = 2;
+        ReportResponse reportResponse = 3;
+        TrackResponse trackResponse = 4;
+        TrackMatchResponse trackMatchResponse = 5;
+        TraceResponse traceResponse = 6;
+    }
+}
+
+message ClientUpdateRequest {
+    repeated int64 prevVectorTimestamp = 1;
+    oneof object {
+        CamJoinRequest camJoinRequest = 2;
+        ReportRequest reportRequest = 3;
+    }
+}
+
+message ClientUpdateResponse {
+    repeated int64 newVectorTimestamp = 1;
+    oneof object {
+        CamJoinResponse camJoinResponse = 2;
+        ReportResponse reportResponse = 3;
+    }
+}
+
+service ReplicaManager {
+    rpc CtrlPing (CtrlPingRequest) returns (CtrlPingResponse);
+    rpc CtrlClear (CtrlClearRequest) returns (CtrlClearResponse);
+    rpc CtrlInit (CtrlInitRequest) returns (CtrlInitResponse);
+    rpc CamJoin (ClientUpdateRequest) returns (ClientUpdateResponse);
+    rpc CamInfo (ClientQueryRequest) returns (ClientQueryResponse);
+    rpc Report (ClientUpdateRequest) returns (ClientUpdateResponse);
+    rpc Track (ClientQueryRequest) returns (ClientQueryResponse);
+    rpc TrackMatch (ClientQueryRequest) returns (ClientQueryResponse);
+    rpc Trace (ClientQueryRequest) returns (ClientQueryResponse);
+    rpc QueryReplica (QueryReplicaRequest) returns (QueryReplicaResponse);
+}
