@@ -1,0 +1,18 @@
+
+
+Generating asm... 
+
+Producing object file... 
+
+Linking file... 
+
+Executing program... 
+x
+Y	z
+
+Comparing outputs... 
+1c1,2
+< xYz
+---
+> x
+> Y	z
