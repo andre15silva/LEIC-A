@@ -1,0 +1,23 @@
+Project Overview:
+    - Gives a good short overview of the project, although it could provide a clearer mention to the time series analysis models being used.
+    - Although it touches the goals of the project, it doesn't present what the final achieved results were.
+    - You should provide a reference to the paper where the dataset is produced.
+
+Background:
+    - Provides a good and clear introduction to the models and essential concepts.
+    - The equations in the ARIMA part should be written as equations and, during textual explanation, references to it should be used.
+    - It would be nice to include references for the ARIMA part.
+    - In the LSTM explanation a reference to the figure should also be used, so as to facilitate an easier read.
+
+Data Sets and Data Pre-Processing:
+    - Comprehends everything that is expected, although it would be nice to clarify what the threshold for outlier removal means (i.e. standard deviations).
+
+Tasks:
+    - In Task II, you could explain what kind of hyper-parameter search you did. Also there's no need to include the pre-processing of the dataset again, as this was already mentioned in its own section. You also meantion that LSTM is better than Linear Regression, "except for several points". You should try to provide an explanation as to why this happens, as well as where exactly.
+    - In Task III, you should provide a general formula for the methods you used.
+    - Introduce actual LaTeX references for Figures, Tables, Equations, etc. This facilitates an easier read, by creating hyperlinks, as well as automatic update of the references when new structures are added. There are several references to Figures that do not correspond to the actual Figures that are meant to be referenced, which is probably a mistake that results from having them hardcoded. You should also try to format the report in a way that the Figures fall into their respective sections.
+    - Why do you expect to achieve a lower accuracy with higher l? My intuition tells me that more information could allow for better accuracy, as more information is available. The results for the KV dataset also contradict this, so it could be something related with the dataset and/or the step size used.
+
+Discussion:
+    - The text is a bit dense and confusing at some times. It would be nice to format it in a different way, separating into several paragraphs for example.
+    - It would also be valuable to mention further work on the several topics studied.

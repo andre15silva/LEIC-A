@@ -1,0 +1,9 @@
+// vector addition
+let a = (1,1) in
+let b = (-1,-1) in
+
+// function
+let vec_add = \x:(int,int). \y:(int,int). (x.1 + y.1, x.2 + y.2) in
+
+// call
+vec_add a b

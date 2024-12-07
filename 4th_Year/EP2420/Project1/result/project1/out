@@ -1,0 +1,37 @@
+delivery1.py:52: DataConversionWarning: Data with input dtype int64, float64 were all converted to float64.
+  RIX_col = minmax_scale(X)
+delivery1.py:56: DataConversionWarning: Data with input dtype int64, float64 were all converted to float64 by the scale function.
+  SX_col = scale(X, axis=0)
+/home/andre/anaconda3/lib/python3.7/site-packages/sklearn/preprocessing/data.py:197: UserWarning: Numerical issues were encountered when scaling the data and might not be solved. The standard deviation of the data is probably very close to 0. 
+  warnings.warn("Numerical issues were encountered "
+delivery1.py:57: DataConversionWarning: Data with input dtype int64, float64 were all converted to float64 by the scale function.
+  SX_row = scale(X, axis=1)
+/home/andre/anaconda3/lib/python3.7/site-packages/sklearn/preprocessing/data.py:180: UserWarning: Numerical issues were encountered when centering the data and might not be solved. Dataset may contain too large values. You may need to prescale your features.
+  warnings.warn("Numerical issues were encountered "
+(36633, 1670)
+(36633, 9)
+\textit{3_cpu16_.sys} & \num{3.55e+00} & \num{1.95e+00} & \num{1.50e+01} & \num{0.00e+00} & \num{0.00e+00} & \num{0.00e+00} \\ 
+ \hline
+\textit{23_RxPacktes} & \num{3.15e+02} & \num{4.12e+02} & \num{2.37e+03} & \num{0.00e+00} & \num{3.70e+01} & \num{4.70e+01} \\ 
+ \hline
+\textit{3_frmpg.s} & \num{-1.15e+01} & \num{2.07e+04} & \num{1.08e+05} & \num{-7.49e+04} & \num{-5.31e+04} & \num{-4.55e+04} \\ 
+ \hline
+\textit{0_cpu18_.idle} & \num{9.97e+01} & \num{5.98e-01} & \num{1.00e+02} & \num{9.50e+01} & \num{9.70e+01} & \num{9.80e+01} \\ 
+ \hline
+\textit{2_cpu17_.usr} & \num{6.03e+01} & \num{1.82e+01} & \num{9.20e+01} & \num{0.00e+00} & \num{8.00e+00} & \num{1.34e+01} \\ 
+ \hline
+\textit{4_cpu15_.iowait} & \num{4.65e-03} & \num{7.21e-02} & \num{3.03e+00} & \num{0.00e+00} & \num{0.00e+00} & \num{0.00e+00} \\ 
+ \hline
+\textit{4_cpu5_.sys} & \num{2.90e+01} & \num{1.08e+01} & \num{7.40e+01} & \num{0.00e+00} & \num{6.06e+00} & \num{9.18e+00} \\ 
+ \hline
+\textit{3_cswch.s} & \num{7.30e+04} & \num{1.79e+04} & \num{1.07e+05} & \num{7.82e+03} & \num{2.19e+04} & \num{2.65e+04} \\ 
+ \hline
+\textit{38_TxBytes} & \num{2.79e+06} & \num{3.18e+06} & \num{1.96e+07} & \num{0.00e+00} & \num{3.47e+05} & \num{4.63e+05} \\ 
+ \hline
+\textit{2_dev8.0_avgrq.sz} & \num{2.21e+01} & \num{5.78e+01} & \num{1.02e+03} & \num{0.00e+00} & \num{0.00e+00} & \num{0.00e+00} \\ 
+ \hline
+\textit{DispFrames} & \num{2.20e+01} & \num{4.32e+00} & \num{2.50e+01} & \num{0.00e+00} & \num{3.00e+00} & \num{8.00e+00} \\ 
+ \hline
+0.5740035449058436
+0.08621263281295148
+0.14381220074758383

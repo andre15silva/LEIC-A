@@ -1,0 +1,67 @@
+4.2.
+❯ python NER.py
++--------------+-------------------+----------------+
+|              | Predicted no name | Predicted name |
++--------------+-------------------+----------------+
+| Real no name | 84181             | 523            |
+| Real name    | 1524              | 13751          |
++--------------+-------------------+----------------+
+Accuracy: 0.9795
+
+
+4.3.
+# No char embedding. Word-level unidirectional.
+❯ python NER.py -c 0 -wud
++--------------+-------------------+----------------+
+|              | Predicted no name | Predicted name |
++--------------+-------------------+----------------+
+| Real no name | 81295             | 3409           |
+| Real name    | 4143              | 11132          |
++--------------+-------------------+----------------+
+Accuracy: 0.9245
+
+# No char embedding. Word-level bidirectional.
+❯ python NER.py -c 0
++--------------+-------------------+----------------+
+|              | Predicted no name | Predicted name |
++--------------+-------------------+----------------+
+| Real no name | 82450             | 2254           |
+| Real name    | 2661              | 12614          |
++--------------+-------------------+----------------+
+Accuracy: 0.9508
+
+# Both chars and word level unidirectional
+❯ python NER.py -cud -wud
++--------------+-------------------+----------------+
+|              | Predicted no name | Predicted name |
++--------------+-------------------+----------------+
+| Real no name | 83774             | 930            |
+| Real name    | 1363              | 13912          |
++--------------+-------------------+----------------+
+Accuracy: 0.9771
+
+# Chars unidirectional, words bidirectional
+❯ python NER.py -cud
++--------------+-------------------+----------------+
+|              | Predicted no name | Predicted name |
++--------------+-------------------+----------------+
+| Real no name | 83960             | 744            |
+| Real name    | 1305              | 13970          |
++--------------+-------------------+----------------+
+Accuracy: 0.9795
+
+# Chars bidirectional, words unidirection
+❯ python NER.py -wud
++--------------+-------------------+----------------+
+|              | Predicted no name | Predicted name |
++--------------+-------------------+----------------+
+| Real no name | 84020             | 684            |
+| Real name    | 1390              | 13885          |
++--------------+-------------------+----------------+
+Accuracy: 0.9793
+
+
+Takeaways:
+- char embeddings give a nice boost:
+    - maybe because it tackles out-of-vocab tokens
+- bidirectional layers improve but not that much, very slim differences

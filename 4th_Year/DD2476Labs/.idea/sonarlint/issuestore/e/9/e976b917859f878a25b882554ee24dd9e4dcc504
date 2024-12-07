@@ -1,0 +1,44 @@
+
+C
+java:S1860$"&Synchronize on a new "Object" instead.(ï§ü²8’Ô²«ö.
+E
+java:S1148+"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ô¶éŸö.
+E
+java:S11482"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ô¶éŸö.
+C
+java:S1075'"&Remove this hard-coded path-delimiter.(ÜÏ³¡8ƒ´Ó°ö.
+9
+java:S3626Ä"Remove this redundant jump.(¿‘©8—’±°ö.
+F
+java:S1148ğ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8­ú±°ö.
+p
+java:S20958"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(Òí’¥øÿÿÿÿ8ô¶éŸö.
+9
+java:S3626Ş"Remove this redundant jump.(¿‘©8­ú±°ö.
+C
+java:S1860["&Synchronize on a new "Object" instead.(ï§ü²8“á®­ö.
+F
+java:S1148‘"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8õä°ö.
+D
+java:S1075£"&Remove this hard-coded path-delimiter.(Çˆ€8ÿŞ×°ö.
+D
+java:S1860¡"&Synchronize on a new "Object" instead.(ï§ü²8—’±°ö.
+I
+java:S1075¢"&Remove this hard-coded path-delimiter.(§Õ¦çÿÿÿÿÿ8ÿŞ×°ö.
+p
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(õ‡³ñ8—’±°ö.
+E	java:S1080")Either remove or fill this block of code.(‹±ÃÆ8ô¶éŸö.
+J
+java:S1659 ",Declare "mergedDataFile" on a separate line.(Şß“Ö8—’±°ö.
+E
+java:S1148f"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ô¶éŸö.
+>
+java:S2129"!Remove this "Boolean" constructor(ğÍÙµ8‡Ä¶«ö.
+L
+java:S1874"/Remove this use of "Boolean"; it is deprecated.(ğÍÙµ8‡Ä¶«ö.
+i
+java:S2142˜"FEither re-interrupt this method or rethrow the "InterruptedException".(üÍ”ûÿÿÿÿ8—’±°ö.
+H
+java:S1075("&Remove this hard-coded path-delimiter.(Ø¼Èûÿÿÿÿ8ÚõÓ°ö.
+F
+java:S1148™"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8—’±°ö.

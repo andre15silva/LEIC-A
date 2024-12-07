@@ -1,0 +1,48 @@
+
+q	java:S116!"WRename this field "case_folding" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°•úôüÿÿÿÿ
+l	java:S117İ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á‡Üûıÿÿÿÿ
+f	java:S117a"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üõâ´
+l
+java:S1128"QRemove this unnecessary import: java.lang classes are always implicitly imported.(Š»³ ùÿÿÿÿ
+p	java:S116B"VRename this field "token_start" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂìÂ¥úÿÿÿÿ
+U
+java:S1155É">Use isEmpty() to check whether the collection is empty or not.(”’ì
+f	java:S117a"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üõâ´
+F
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
+o	java:S116H"ZRename this field "started_reading" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä¢ò‡
+i
+java:S3776Ø"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ç‰ªã
+c
+java:S2095ƒ"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Á›•œ
+v	java:S116'"\Rename this field "remove_diacritics" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒØ¥¢øÿÿÿÿ
+3
+java:S2386N"Make this member "protected".(¢øÑ˜
+s
+java:S1104!"XMake case_folding a static final constant or non-public and provide accessors if needed.(°•úôüÿÿÿÿ
+V
+java:S1126v"AReplace this if-then-else statement by a single return statement.(´Š¢
+r	java:S116-"]Rename this field "remove_punctuation" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®“¢µ
+f	java:S117a"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üõâ´
+v
+java:S1149²"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(“òù¬
+U
+java:S1155½">Use isEmpty() to check whether the collection is empty or not.(äşŒû
+t
+java:S1104-"^Make remove_punctuation a static final constant or non-public and provide accessors if needed.(®“¢µ
+u
+java:S2293€"YReplace the type specification in this constructor call with the diamond operator ("<>").(ğœ£øÿÿÿÿ
+]
+java:S1126«"AReplace this if-then-else statement by a single return statement.(€İÌíûÿÿÿÿ
+K
+java:S1066¢"/Merge this if statement with the enclosing one.(óÍıŠúÿÿÿÿ
+H
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ
+f	java:S117a"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üõâ´
+o
+java:S2293E"YReplace the type specification in this constructor call with the diamond operator ("<>").(êÙŞ
+l	java:S117±"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì™ñûÿÿÿÿ
+x
+java:S1104'"]Make remove_diacritics a static final constant or non-public and provide accessors if needed.(ƒØ¥¢øÿÿÿÿ
+k	java:S116E"VRename this field "token_queue" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êÙŞ
+g	java:S117Õ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùã÷¶

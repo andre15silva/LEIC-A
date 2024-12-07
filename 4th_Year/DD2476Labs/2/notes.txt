@@ -1,0 +1,64 @@
+2.3.
+First table: tf = term frequency
+
+Second table: each vector element if tf or tf*idf. Compute distance
+
+Third table: same as above, but compute cosine distance
+
+Fourth table: same as above, but queries vectors are (1,1) and not (tf, tf) or (tf*idf, tf*idf)
+
+
+
+2.4.
+
+difficult:
+- all those programs that are not strictly mathematics
+- Evelyn_Silvia points to a graduate program in her bio, but is that relevant? 
+- Etomology doesn't mention a math graduate program, but talks about the topic in a way
+
+rating scale is a bit weird and restricts human assessment too much
+
+nDocs   precision       recall
+10      5/10=0.5        5/100=0.05
+20      9/20=0.45       9/100=0.09
+30      13/30=0.4(3)    13/100=0.13
+40      21/40=0.525     21/100=0.21
+50      26/50=0.52      26/100=0.26
+
+2.5.
+Does the ranking make sense?
+- Yes, top pages are very general and broad.
+
+tf_idf dominate?
+- Might present less authoritative prges
+page rank dominate?
+- Loses query relevance
+Optimal?
+- One that maximizes recall and precision.
+
+2.6.
+query           normalization   precision@10   recall@10
+zombie attack   #words          8/10           8/100=0.08
+"      "        euclidean       9/10           9/100=0.09
+money transfer  #words          3/10           3/100=0.03
+"      "        euclidean       2/10           2/100=0.02
+
+None was better consisntently.
+
+2.7.
+Good results for N=n? Yes
+Remove randomness by having N as a multiple of n? Yes
+
+2.8.
+Does the ranking make sense? How does it compare to PageRank?
+    Davis Timeline:
+    - complete timelines points to all, is a HUB
+    - others are authoritative because they point to each other, some are hubs too
+- page rank is more similar to authorities score
+
+How should one select this subset of documents?
+- root set is the subset of documents that have at least one of the terms in the query
+
+Hows should one combine these two scores in a meaningful way? Can we use a linear combination?
+- Linear combination could work
+- (w1*a*w2*h)/(w1*a+w2*h), gives more to those who are good authorities and hubs, but may fail for pages that are big authorities or big hubs (not what we want).

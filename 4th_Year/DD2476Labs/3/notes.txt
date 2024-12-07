@@ -1,0 +1,93 @@
+3.1.
+
+query: computer science graduate program
+
+What happens to the two documents that you selected?
+- Their score is increased and their position also jumps
+
+What are the characteristics of the other documents in the new top ten list? What are they about? Are there any new ones that weren't there?
+- Yes there are some new ones
+- There are more documents related to those that were selected
+
+Try different values for the weights alpha and beta: How is the relevance feedback process affected by alpha and beta?
+- The higher the alpha, the more weight we give to query terms. This approximates the new query to the original one. Less differences after feedback.
+- The higher the beta, the more weight we give to document terms. This means that the (positive) feedback has more weight.
+
+Why is the search after feedback slower? Why is the number of documents larger?
+- More terms in the query
+
+Why is relevance feedback called a local query refining method? What are the alternatives for query refining?
+- Because it adjusts a query based on the documents that initially match that query. Global methods adjust query independently of the query and results returned from it (spelling correction, thesaurus, etc)
+
+
+
+3.2.
+idcg calculated with documents in the file
+
+before : 0.09579369201228496
+    dcg = 1/(math.log(2)) + 1/(math.log(6)) + 1/(math.log(8)) + 1/(math.log(23)) + 1/(math.log(28)) + 1/(math.log(30)) + 1/(math.log(33)) + 1/(math.log(34)) + 2/(math.log(35)) + 1/(math.log(46))
+
+after : 0.11647508515924222
+    dcg = 1/(math.log(2)) + 1/(math.log(10)) + 1/(math.log(13)) + 2/(math.log(14)) + 3/(math.log(16)) + 1/(math.log(28)) + 1/(math.log(29)) + 1/(math.log(31)) + 1/(math.log(32)) + 1/(math.log(35)) + 1/(math.log(49))
+
+Why do we want to omit that document?
+- Because that document was artificially chosen has the centroid, so it's position is biased.
+What do you see?
+- It increased
+
+
+
+3.3.
+
+CODE
+
+
+
+3.4.
+
+How would you interpret the meaning of the query "historic* humo*r"?
+- historic/historical (don't mean the same thing but are similar)
+- humor/humour (different spellings of the same word)
+
+Why could the word "revenge" be returned by a bigram index in return to a query "re*ve"?
+- Because it matches some of the k-grams
+How could this be solved?
+- Matching the original regex to these candidates
+
+How would you get the ranking for the ranked wildcard queries?
+- Treat all of them as the same term, since when a user specifies queries like humo*r or historic* they are aiming at the same concept. If we divide the words, we will be favouring less common words.
+It makes more sense to me in the context of this search engine.
+
+Which of the three queries was the fastest? Which was the slowest? Why?
+- More wildcards, takes longer because there are more possibilities.
+
+
+
+3.5.
+
+Ranking function of candidate list?
+- Takes into account jaccard similarity, edit distance as well as token frequency in the corpus (more frequency, more likely to be searched).
+
+Jaccard. Why is this a valid formula?
+- Because |AUB| = |A| + |B| - |A\intersectB|. Draw Venn Diagram
+
+Size of the intersection?
+- Number of times candidate word appears in KGramPostingsEntry lists. That is, the number of common k-grams.
+
+
+
+
+
+
+3.6.
+
+How could you use this observation to improve your algorithm?
+- Merge 2 at a time, left to right
+- Only generate N * limit candidates per merge
+- SHOULD WE USE GETPOSTINGS and intersect (perform a query)?
+
+Scalable?
+- Because we generate only a certain number of candidates per merge. We need Nmerges. So it's linear.
+
+Phrase queries?
+- Dunno. Maybe by including in the heuristic the frequency of two terms showing up next to each other?This can be done efficiently if we store the PostingsLists and do intersections one merge at a time.

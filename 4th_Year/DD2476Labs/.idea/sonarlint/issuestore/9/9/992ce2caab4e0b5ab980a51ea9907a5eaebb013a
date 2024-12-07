@@ -1,0 +1,28 @@
+
+f	java:S116"LRename this field "K" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶…Âşÿÿÿÿ
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Õ…ùØ
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ËÔÃõ
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ„Éüÿÿÿÿ
+A
+java:S11725"&Remove these unused method parameters.(Î‹·úÿÿÿÿ
+A
+java:S11689"+Return an empty collection instead of null.(¥¹ï
+B
+java:S1172E",Remove this unused method parameter "kgram".(˜ûçÿ
+A
+java:S1168I"+Return an empty collection instead of null.(¥¹ï
+h
+java:S3776V"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Šúïù
+:
+java:S1659X"Declare "j" on a separate line.(á”æåşÿÿÿÿ
+o
+java:S2293W"YReplace the type specification in this constructor call with the diamond operator ("<>").(´İ‘ò
+“
+java:S1130v"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(ı‡ÏÁøÿÿÿÿ
+A
+java:S1481X"&Remove this unused "j" local variable.(á”æåşÿÿÿÿ
+N
+java:S1144)"3Remove this unused private "generateTermID" method.(Ôš¤ûÿÿÿÿ

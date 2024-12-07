@@ -1,0 +1,26 @@
+
+i
+java:S3027ƒ"FPut single-quotes around ';' to use the faster "indexOf(char)" method.(ÎÇÏÈÿÿÿÿÿ8ì¡„ú.
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(‹©ø­
+F
+java:S1148•"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8­¬¤‚ú.
+\
+java:S1117ƒ"9Rename "index" which hides the field declared at line 30.(ÎÇÏÈÿÿÿÿÿ8¡ñŸ„ú.
+F	java:S108×")Either remove or fill this block of code.(ï­£Ä8àşé‰ú.
+F
+java:S1148—"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8­¬¤‚ú.
+R
+java:S2864"4Iterate over the "entrySet" instead of the "keySet".(±Ôê8åö‰ú.
+p
+java:S3776 "RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(¿¶ªô8½ø‡‰ú.
+c
+java:S2147–"ECombine this catch with the one at line 148, which has the same body.(ï­£Ä8­¬¤‚ú.
+j
+java:S2095Ì"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(çØÜì8àşé‰ú.
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ã›–Úÿÿÿÿÿ
+|
+java:S2293º"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÒºÌøÿÿÿÿ8àşé‰ú.
+|
+java:S2293¶"YReplace the type specification in this constructor call with the diamond operator ("<>").(‰‰Şşÿÿÿÿ8àşé‰ú.

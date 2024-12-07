@@ -1,0 +1,80 @@
+// quick sort
+let l = [9,2,1,3,4,5,7,3,4|int] in
+
+// helper functions
+let and = \x:bool. \y:bool. if x then y else false in
+let not = \x:bool. if x then false else true in
+let iszero = \x:int. and (x < 1) (not (x < 0)) in
+let equal = \x:int. \y:int. iszero (x + - y) in
+let less = \x:int. \y:int. and (not (x < y)) (not (iszero (x + - y))) in
+let greater = \x:int. \y:int. and (x < y) (not (equal x y)) in
+
+// filter function
+letrec filter:(int->bool)->[int]->[int] = \f:int->bool. \l:[int]. 
+                                           if (isnil l) then
+                                            [int]
+                                           else if (f (hd l)) then
+                                            (hd l)::(filter f (tl l))
+                                           else
+                                            (filter f (tl l))
+in
+
+// len function
+let g = \len:[int]->int. \l:[int]. if (isnil l) then 0 else (1 + len (tl l)) in
+let len = fix g in
+
+// div function
+// greater or equal by hand
+let g = \div:int->int->int. \x:int. \y:int.
+                    if (greater y x) then
+                        1 + (div (x + - y) y)
+                    else if (equal x y) then
+                        1 + (div (x + - y) y)
+                    else
+                        0
+in
+let div = fix g in
+
+// pivot function
+let g = \pivot:[int]->int->int. \l:[int]. \i:int.
+                    if (equal (len l) (i + 1)) then
+                        hd l
+                    else
+                        pivot (tl l) i
+in
+let pivot = fix g in
+
+// concatenate list function
+let g = \concat:[int]->[int]->[int]. \l:[int]. \r:[int].
+                // terminal case
+                if (and (isnil l) (isnil r)) then
+                    l
+                // left is clear
+                else if (isnil l) then
+                    (hd r)::(tl r)
+                else
+                    (hd l)::(concat (tl l) r)
+in
+let concat = fix g in
+
+// quicksort function
+// TODO: Finish this function
+let g = \qs:[int]->[int]. \l:[int].
+                    // less or equal 1 we have only nil or 1
+                    if ((len l) < 1) then
+                        l
+                    else if (equal (len l) 1) then
+                        l
+                    // now we want to do call recursively qs
+                    else
+                        let mid = (div (len l) 2) in
+                        let p = (pivot l mid) in
+                        let left = (qs (filter (less p) l)) in
+                        let middle = (filter (equal p) l) in
+                        let right = (qs (filter (greater p) l)) in
+                        concat left (concat (middle) (right))
+in
+let qs = fix g in
+
+// call quicksort
+qs l

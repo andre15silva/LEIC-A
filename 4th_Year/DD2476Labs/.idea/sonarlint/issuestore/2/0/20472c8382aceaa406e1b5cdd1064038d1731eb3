@@ -1,0 +1,20 @@
+
+c
+java:S2095¯"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(çØÜì
+?
+java:S1604—"(Make this anonymous inner class a lambda(¦Ğñ„
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ã›–Úÿÿÿÿÿ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(‹©ø­
+t
+java:S2293#"YReplace the type specification in this constructor call with the diamond operator ("<>").(˜ôø¾ıÿÿÿÿ
+C
+java:S1172s"-Remove this unused method parameter "titles".(¿¶ªô
+u
+java:S2293•"YReplace the type specification in this constructor call with the diamond operator ("<>").(‰‰Şşÿÿÿÿ
+u
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(·ÒºÌøÿÿÿÿ
+>	java:S108º")Either remove or fill this block of code.(Éò§+
+K
+java:S1144X"0Remove this unused private "getFileName" method.(‰ÁÁŞıÿÿÿÿ

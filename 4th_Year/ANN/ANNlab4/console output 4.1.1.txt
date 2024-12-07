@@ -1,0 +1,264 @@
+Output RBM 4.1 question 1,3, batch size 10
+Starting a Restricted Boltzmann Machine..
+learning CD1
+new epoch, mean energy of system = 0.1314
+iteration=      0 recon_loss=0.2789
+iteration=   5000 recon_loss=0.0664
+new epoch, mean energy of system = 103.1624
+iteration=  10000 recon_loss=0.0641
+new epoch, mean energy of system = 124.1128
+iteration=  15000 recon_loss=0.0630
+new epoch, mean energy of system = 133.5525
+iteration=  20000 recon_loss=0.0632
+new epoch, mean energy of system = 136.6689
+iteration=  25000 recon_loss=0.0627
+new epoch, mean energy of system = 135.8902
+iteration=  30000 recon_loss=0.0625
+iteration=  35000 recon_loss=0.0625
+new epoch, mean energy of system = 133.6761
+iteration=  40000 recon_loss=0.0623
+new epoch, mean energy of system = 132.4983
+iteration=  45000 recon_loss=0.0622
+new epoch, mean energy of system = 130.7768
+iteration=  50000 recon_loss=0.0623
+new epoch, mean energy of system = 130.0926
+iteration=  55000 recon_loss=0.0618
+new epoch, mean energy of system = 128.2962
+iteration=  60000 recon_loss=0.0617
+iteration=  65000 recon_loss=0.0617
+new epoch, mean energy of system = 126.4603
+iteration=  70000 recon_loss=0.0622
+new epoch, mean energy of system = 126.3098
+iteration=  75000 recon_loss=0.0618
+new epoch, mean energy of system = 124.0431
+iteration=  80000 recon_loss=0.0622
+new epoch, mean energy of system = 125.5788
+iteration=  85000 recon_loss=0.0618
+new epoch, mean energy of system = 123.4687
+iteration=  90000 recon_loss=0.0617
+iteration=  95000 recon_loss=0.0616
+new epoch, mean energy of system = 123.9207
+iteration= 100000 recon_loss=0.0620
+new epoch, mean energy of system = 123.9433
+iteration= 105000 recon_loss=0.0618
+new epoch, mean energy of system = 124.3646
+iteration= 110000 recon_loss=0.0622
+new epoch, mean energy of system = 121.1258
+iteration= 115000 recon_loss=0.0618
+
+notes: mean reconstruction loss starts oscillating after about epoch 10, energy slowly goes down after rising for first few epochs
+
+minibatch size 20
+Starting a Restricted Boltzmann Machine..
+learning CD1
+new epoch, mean energy of system = 0.5123
+iteration=      0 recon_loss=0.2684
+new epoch, mean energy of system = 131.9479
+iteration=   5000 recon_loss=0.0644
+new epoch, mean energy of system = 158.3680
+new epoch, mean energy of system = 170.0331
+iteration=  10000 recon_loss=0.0633
+new epoch, mean energy of system = 172.3891
+new epoch, mean energy of system = 173.7009
+iteration=  15000 recon_loss=0.0625
+new epoch, mean energy of system = 174.7189
+iteration=  20000 recon_loss=0.0625
+new epoch, mean energy of system = 177.0247
+new epoch, mean energy of system = 174.0760
+iteration=  25000 recon_loss=0.0624
+new epoch, mean energy of system = 174.2974
+new epoch, mean energy of system = 174.1849
+iteration=  30000 recon_loss=0.0623
+new epoch, mean energy of system = 171.9597
+iteration=  35000 recon_loss=0.0625
+new epoch, mean energy of system = 171.2604
+new epoch, mean energy of system = 172.3391
+iteration=  40000 recon_loss=0.0625
+new epoch, mean energy of system = 168.6080
+new epoch, mean energy of system = 166.8813
+iteration=  45000 recon_loss=0.0621
+new epoch, mean energy of system = 164.3041
+iteration=  50000 recon_loss=0.0622
+new epoch, mean energy of system = 166.2534
+new epoch, mean energy of system = 162.5411
+iteration=  55000 recon_loss=0.0622
+new epoch, mean energy of system = 162.3157
+
+4.1.2:
+Starting a Restricted Boltzmann Machine..
+learning CD1
+new epoch, mean energy of system = 1.2235
+iteration=      0 recon_loss=0.1668
+new epoch, mean energy of system = 158.3069
+iteration=   5000 recon_loss=0.0622
+new epoch, mean energy of system = 176.3525
+new epoch, mean energy of system = 173.1312
+iteration=  10000 recon_loss=0.0608
+new epoch, mean energy of system = 164.3159
+new epoch, mean energy of system = 153.1256
+iteration=  15000 recon_loss=0.0606
+new epoch, mean energy of system = 141.8531
+iteration=  20000 recon_loss=0.0604
+new epoch, mean energy of system = 130.4569
+new epoch, mean energy of system = 120.8775
+iteration=  25000 recon_loss=0.0599
+new epoch, mean energy of system = 112.2384
+new epoch, mean energy of system = 105.0331
+iteration=  30000 recon_loss=0.0599
+new epoch, mean energy of system = 93.3080
+iteration=  35000 recon_loss=0.0598
+new epoch, mean energy of system = 87.2363
+new epoch, mean energy of system = 82.1010
+iteration=  40000 recon_loss=0.0595
+new epoch, mean energy of system = 74.2578
+learning CD1
+new epoch, mean energy of system = 1.1294
+iteration=      0 recon_loss=0.1927
+new epoch, mean energy of system = 157.4900
+iteration=   5000 recon_loss=0.0626
+new epoch, mean energy of system = 174.2830
+new epoch, mean energy of system = 173.2354
+iteration=  10000 recon_loss=0.0608
+new epoch, mean energy of system = 173.3713
+new epoch, mean energy of system = 174.7780
+iteration=  15000 recon_loss=0.0612
+new epoch, mean energy of system = 172.8387
+iteration=  20000 recon_loss=0.0609
+new epoch, mean energy of system = 167.6144
+new epoch, mean energy of system = 163.1541
+iteration=  25000 recon_loss=0.0607
+new epoch, mean energy of system = 158.0738
+new epoch, mean energy of system = 155.1733
+iteration=  30000 recon_loss=0.0603
+new epoch, mean energy of system = 152.3002
+iteration=  35000 recon_loss=0.0604
+new epoch, mean energy of system = 147.2244
+new epoch, mean energy of system = 145.4903
+iteration=  40000 recon_loss=0.0603
+new epoch, mean energy of system = 142.4438
+learning CD1
+new epoch, mean energy of system = 0.9688
+iteration=      0 recon_loss=0.1755
+new epoch, mean energy of system = 154.9857
+iteration=   5000 recon_loss=0.0629
+new epoch, mean energy of system = 173.8907
+new epoch, mean energy of system = 174.8726
+iteration=  10000 recon_loss=0.0619
+new epoch, mean energy of system = 174.0207
+new epoch, mean energy of system = 173.0521
+iteration=  15000 recon_loss=0.0612
+new epoch, mean energy of system = 173.7756
+iteration=  20000 recon_loss=0.0610
+new epoch, mean energy of system = 169.2689
+new epoch, mean energy of system = 169.0994
+iteration=  25000 recon_loss=0.0606
+new epoch, mean energy of system = 168.1238
+new epoch, mean energy of system = 167.2297
+iteration=  30000 recon_loss=0.0608
+new epoch, mean energy of system = 166.3533
+iteration=  35000 recon_loss=0.0606
+new epoch, mean energy of system = 163.1576
+new epoch, mean energy of system = 159.4226
+iteration=  40000 recon_loss=0.0601
+new epoch, mean energy of system = 158.9257
+learning CD1
+new epoch, mean energy of system = 0.8794
+iteration=      0 recon_loss=0.1943
+new epoch, mean energy of system = 146.6331
+iteration=   5000 recon_loss=0.0627
+new epoch, mean energy of system = 169.5955
+new epoch, mean energy of system = 174.1509
+iteration=  10000 recon_loss=0.0625
+new epoch, mean energy of system = 170.3078
+new epoch, mean energy of system = 166.7998
+iteration=  15000 recon_loss=0.0617
+new epoch, mean energy of system = 165.6749
+iteration=  20000 recon_loss=0.0612
+new epoch, mean energy of system = 163.9540
+new epoch, mean energy of system = 163.0206
+iteration=  25000 recon_loss=0.0609
+new epoch, mean energy of system = 161.8566
+new epoch, mean energy of system = 157.6703
+iteration=  30000 recon_loss=0.0612
+new epoch, mean energy of system = 154.8807
+iteration=  35000 recon_loss=0.0612
+new epoch, mean energy of system = 155.0095
+new epoch, mean energy of system = 151.9614
+iteration=  40000 recon_loss=0.0610
+new epoch, mean energy of system = 151.5036
+learning CD1
+new epoch, mean energy of system = 0.7145
+iteration=      0 recon_loss=0.1977
+new epoch, mean energy of system = 146.3090
+iteration=   5000 recon_loss=0.0636
+new epoch, mean energy of system = 173.3488
+new epoch, mean energy of system = 176.8752
+iteration=  10000 recon_loss=0.0626
+new epoch, mean energy of system = 177.5346
+new epoch, mean energy of system = 176.4648
+iteration=  15000 recon_loss=0.0620
+new epoch, mean energy of system = 175.5061
+iteration=  20000 recon_loss=0.0614
+new epoch, mean energy of system = 173.8095
+new epoch, mean energy of system = 170.8592
+iteration=  25000 recon_loss=0.0610
+new epoch, mean energy of system = 168.8516
+new epoch, mean energy of system = 167.8365
+iteration=  30000 recon_loss=0.0613
+new epoch, mean energy of system = 167.8083
+iteration=  35000 recon_loss=0.0610
+new epoch, mean energy of system = 167.4776
+new epoch, mean energy of system = 163.9465
+iteration=  40000 recon_loss=0.0610
+new epoch, mean energy of system = 162.8675
+learning CD1
+new epoch, mean energy of system = 0.6275
+iteration=      0 recon_loss=0.2163
+new epoch, mean energy of system = 139.8086
+iteration=   5000 recon_loss=0.0633
+new epoch, mean energy of system = 161.1912
+new epoch, mean energy of system = 168.4519
+iteration=  10000 recon_loss=0.0631
+new epoch, mean energy of system = 172.0687
+new epoch, mean energy of system = 173.0856
+iteration=  15000 recon_loss=0.0623
+new epoch, mean energy of system = 176.7440
+iteration=  20000 recon_loss=0.0620
+new epoch, mean energy of system = 176.6392
+new epoch, mean energy of system = 175.1580
+iteration=  25000 recon_loss=0.0619
+new epoch, mean energy of system = 174.4970
+new epoch, mean energy of system = 171.3378
+iteration=  30000 recon_loss=0.0618
+new epoch, mean energy of system = 168.6232
+iteration=  35000 recon_loss=0.0617
+new epoch, mean energy of system = 167.5004
+new epoch, mean energy of system = 166.4993
+iteration=  40000 recon_loss=0.0618
+new epoch, mean energy of system = 164.7218
+learning CD1
+new epoch, mean energy of system = 0.4819
+iteration=      0 recon_loss=0.2164
+new epoch, mean energy of system = 134.0198
+iteration=   5000 recon_loss=0.0643
+new epoch, mean energy of system = 152.8660
+new epoch, mean energy of system = 159.3356
+iteration=  10000 recon_loss=0.0633
+new epoch, mean energy of system = 165.3106
+new epoch, mean energy of system = 166.7364
+iteration=  15000 recon_loss=0.0627
+new epoch, mean energy of system = 164.9154
+iteration=  20000 recon_loss=0.0624
+new epoch, mean energy of system = 161.1691
+new epoch, mean energy of system = 157.7602
+iteration=  25000 recon_loss=0.0623
+new epoch, mean energy of system = 152.3320
+new epoch, mean energy of system = 147.5128
+iteration=  30000 recon_loss=0.0617
+new epoch, mean energy of system = 142.0247
+iteration=  35000 recon_loss=0.0623
+new epoch, mean energy of system = 136.9664
+new epoch, mean energy of system = 134.2664
+iteration=  40000 recon_loss=0.0623
+new epoch, mean energy of system = 129.0723
+

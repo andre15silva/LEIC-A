@@ -1,0 +1,18 @@
+- In this project we are looking into forecasting, which consists in making predictions of the future based on past and present data. In this task I we analyzed the KV Store service, with a periodic load generator.
+- In this task we will be formulating forecasting as a regression problem and analyze the results on the variation of our parameters.
+
+- First project we looked into a regression problem formulated like this, where each original sample correspondes to a target value at the same time instance.
+
+- In this project we are performing forecasting so we need to formulate our regression problem in a different way.
+- Our objetive for this task is, then, to build a model, with parameters theta, h (horizon), l (lag), (the amount of steps) that takes a sequence and predicts another sequence.
+
+- To do this we need to transform our dataset, so that each sample is now a sequence and its target value is also a sequence.
+
+- We then built 11 linear regression models, one for each l in the interval 0...10
+- The heatmap shows the NMAE of each model when predicting y^(t+h). Rows represent time horizon and column represent lag.
+
+- The main trends we can see in this heatmap are that the NMAE decreases as we increase l, and that it increases as we increase h. 
+- This goes well with our intuition, which says that the more information we have (the higher the l), the more accurately we can predict, and that the further we try to predict the greater the uncertainty.
+
+- This being said we can also see that the NMAE doesn't monotonically decrease as we increase l from 0. An explanation to this might be that we only built 11 models, as opposed to 11^2, and these predictions are influenced by the noise of unused predictions.
+- One explanation for l = 0,1 not decreasing monotonically as we increase h could be that the current state of the system (l=0) is more indicative of short-term future states (h=2,3) than the actual current state.

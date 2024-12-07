@@ -1,0 +1,6 @@
+// just testing basic let functionality
+let b = false in
+// testing propagation to next let
+let a = b in
+// evaluates to false
+b

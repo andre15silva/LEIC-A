@@ -1,0 +1,17 @@
+// helper functions
+let and = \x:bool. \y:bool. if x then y else false in
+let not = \x:bool. if x then false else true in
+let iszero = \x:int. and (x < 1) (not (x < 0)) in
+let equal = \x:int. \y:int. iszero (x + - y) in
+
+// equals function for two objetcs of the same type
+let equals_rec = \x:{a:int,b:int}. \y:{a:int,b:int}.
+                    and (equal x.a y.a) (equal x.b y.b)
+in
+
+// params
+let x = {a=1,b=2} in
+let y = {a=1,b=2} in
+
+// call
+equals_rec x y

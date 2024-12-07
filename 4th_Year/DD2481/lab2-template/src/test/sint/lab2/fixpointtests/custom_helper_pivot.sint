@@ -1,0 +1,47 @@
+// quick sort
+
+// helper functions
+let and = \x:bool. \y:bool. if x then y else false in
+let not = \x:bool. if x then false else true in
+let iszero = \x:int. and (x < 1) (not (x < 0)) in
+let equal = \x:int. \y:int. iszero (x + - y) in
+let less = \x:int. \y:int. and (not (x < y)) (not (iszero (x + - y))) in
+let greater = \x:int. \y:int. and (x < y) (not (equal x y)) in
+
+// filter function
+letrec filter:(int->bool)->[int]->[int] = \f:int->bool. \l:[int]. 
+                                           if (isnil l) then
+                                            [int]
+                                           else if (f (hd l)) then
+                                            (hd l)::(filter f (tl l))
+                                           else
+                                            (filter f (tl l))
+in
+
+// len function
+let g = \len:[int]->int. \l:[int]. if (isnil l) then 0 else (1 + len (tl l)) in
+let len = fix g in
+
+// div function
+// greater or equal by hand
+let g = \div:int->int->int. \x:int. \y:int.
+                    if (greater y x) then
+                        1 + (div (x + - y) y)
+                    else if (equal x y) then
+                        1 + (div (x + - y) y)
+                    else
+                        0
+in
+let div = fix g in
+
+// pivot function
+let g = \pivot:[int]->int->int. \l:[int]. \i:int.
+                    if (equal (len l) (i + 1)) then
+                        hd l
+                    else
+                        pivot (tl l) i
+in
+let pivot = fix g in
+
+let l = [1,2,3,4,5|int] in
+pivot l (div (len l) 2)

@@ -1,0 +1,4 @@
+// just testing basic let functionality
+let b = false in
+// evaluates to false
+b

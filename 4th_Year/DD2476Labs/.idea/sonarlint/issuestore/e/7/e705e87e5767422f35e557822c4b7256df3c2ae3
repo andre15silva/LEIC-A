@@ -1,0 +1,17 @@
+
+n
+java:S1104"QMake score a static final constant or non-public and provide accessors if needed.(×õ¼ê8Êîë˜õ.
+
+java:S1319"rThe type of the "offsets" object should be an interface such as "List" rather than the implementation "ArrayList".(Ó‡¿µ8´‚Ë¦õ.
+
+java:S1319."pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ëàú8´‚Ë¦õ.
+u
+java:S1210"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(È¶ÜV8Âı§õ.
+A
+java:S1948"$Make "offsets" private or transient.(Ó‡¿µ8´‚Ë¦õ.
+m
+java:S1104"QMake docID a static final constant or non-public and provide accessors if needed.(¡ûım8Êîë˜õ.
+p
+java:S1104"SMake offsets a static final constant or non-public and provide accessors if needed.(Ó‡¿µ8´‚Ë¦õ.
+G
+java:S21147"%Remove or correct this "addAll" call.(Î¨„‰ùÿÿÿÿ8€¤›¢ö.

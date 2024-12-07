@@ -1,0 +1,100 @@
+3.1.
+
+Neighbors for Harry: [('Harry', 0.0), ('Hagrid', 0.06699766617620184), ('Snape', 0.08918719858518764), ('Neville', 0.09431486793612598), ('Moody', 0.1026164966881189)]
+Neighbors for Gryffindor: [('Gryffindor', 0.0), ('Slytherin', 0.12449954020868725), ('class', 0.1525807266594319), ('house', 0.15505299037781006), ('school', 0.16255264873760644)]
+Neighbors for chair: [('chair', 0.0), ('seat', 0.06298225140165181), ('cauldron', 0.12321461123763833), ('hand', 0.1266859553828361), ('hat', 0.1370553107476321)]
+Neighbors for wand: [('wand', 0.0), ('head', 0.06682024491407512), ('hand', 0.07211634517793752), ('eyes', 0.07796462369939317), ('face', 0.09166022278468344)]
+Neighbors for good: [('good', 0.0), ('bad', 0.12548675807926357), ('nice', 0.128488302781663), ('simple', 0.1383493276392711), ('such', 0.14386139168594525)]
+Neighbors for enter: [('enter', 0.0), ('break', 0.1281125671822041), ('leave', 0.13339624977131515), ('take', 0.14026340911782342), ('discuss', 0.14596903908566594)]
+Neighbors for on: [('on', 0.0), ('in', 0.033667187469104576), ('from', 0.03512909402093367), ('through', 0.04540899785007502), ('into', 0.046971974486669676)]
+Neighbors for school: [('school', 0.0), ('point', 0.07898532179022477), ('house', 0.08745905574881974), ('castle', 0.09022141180941401), ('students', 0.09386825125647613)]
+
+Reduced to 150 dimensions with 10 non-zero values. Still good results. Will use as baseline
+
+- Change to 10 with 8 non-zero elements
+    Results are worse than my settings
+
+- Change window sizes
+    - Asymmetric:
+     expect to have prepositions stay stable as they have contexto before and after.
+     adjectives probably better with left context
+     names and verbs should be more os less stable
+        0 - 3 -> names are stable, prepositions too. verbs are bad
+        3 - 0 -> verbs are quite better than with right context, left side is usually more stable i'd say
+    - Symmetric:
+        0 - 0 -> all vectors are equal, so all distances are equal
+        10 - 10 -> results are worse, probably because the context is too large and so context vectors won't be well distributed
+
+3.2.
+
+non_corrected uniform:
+Neighbors for Harry: [('Harry', 0.0), ('Ron', 0.3507916868103813), ('Hermione', 0.41108432223342695), ('Hagrid', 0.4947290630731255), ('he', 0.49814490904106523)]
+Neighbors for Gryffindor: [('Gryffindor', 0.0), ('Sorcerers', 0.494250558081718), ('Slytherin', 0.5152022688099505), ('points', 0.5884224496257506), ('our', 0.6222907969622951)]
+Neighbors for chair: [('chair', 0.0), ('open', 0.5080236189172573), ('key', 0.5287199815583422), ('cloak', 0.5580797713649933), ('saw', 0.5680612485181584)]
+Neighbors for wand: [('wand', 0.0), ('girl', 0.5248869674704815), ('Two', 0.5253376035557085), ('cloak', 0.5595361900517751), ('years', 0.5873435241560804)]
+Neighbors for good: [('good', 0.0), ('gone', 0.603000755926276), ('easy', 0.6307444321633566), ('Lily', 0.6482279229553395), ('Hogwarts', 0.6519633616709215)]
+Neighbors for enter: [('enter', 2.220446049250313e-16), ('Yesterday', 0.13794225913923586), ('lovely', 0.1426116593325797), ('divebombing', 0.1515411610678158), ('dud', 0.1532306135234507)]
+Neighbors for on: [('on', 2.220446049250313e-16), ('through', 0.5031134820698202), ('in', 0.5169518814761591), ('which', 0.51699870445012), ('off', 0.5292711599955271)]
+Neighbors for school: [('school', 0.0), ('last', 0.4226142188736093), ('word', 0.5200203803450569), ('room', 0.5558289926208054), ('very', 0.5718379718265987)]
+
+corrected uniform:
+Neighbors for Harry: [('Harry', 0.0), ('Ron', 0.3066521475350099), ('Hagrid', 0.31259426439328664), ('Snape', 0.38341362243776944), ('he', 0.3843677704756201)]
+Neighbors for Gryffindor: [('Gryffindor', 0.0), ('agreed', 0.4880342364876631), ('sleep', 0.5638189047245471), ('points', 0.5700396890672503), ('Thousand', 0.5885773815087463)]
+Neighbors for chair: [('chair', 0.0), ('except', 0.5995304631962918), ('some', 0.6113971187294808), ('So', 0.6204556640994987), ('is', 0.6307418451589508)]
+Neighbors for wand: [('wand', 0.0), ('hand', 0.5090998386258405), ('tonight', 0.514508572995481), ('seat', 0.5195832643324217), ('and', 0.528901286622416)]
+Neighbors for good: [('good', 2.220446049250313e-16), ('really', 0.4249979827992053), ('waiting', 0.5443739344858087), ('doing', 0.5573503561244841), ('sign', 0.560768885114612)]
+Neighbors for enter: [('enter', 0.0), ('Saw', 0.17155926567285773), ('redder', 0.17560058213924734), ('charging', 0.18183175093264414), ('Table', 0.18214774918802146)]
+Neighbors for on: [('on', 0.0), ('from', 0.5047884798820101), ('slowly', 0.5368823149841186), ('side', 0.546511251505784), ('with', 0.571995680655184)]
+Neighbors for school: [('school', 3.3306690738754696e-16), ('stone', 0.3995091858158548), ('instead', 0.5506042957907576), ('busy', 0.559413272121807), ('She', 0.5648954644675466)]
+
+corrected normal:
+Neighbors for Harry: [('Harry', 0.0), ('so', 0.470288519683813), ('again', 0.4865854880580438), ('he', 0.4963167315198205), ('have', 0.5098556791938299)]
+Neighbors for Gryffindor: [('Gryffindor', 1.1102230246251565e-16), ('touch', 0.4436403699811674), ('Dumbledores', 0.47252542059405755), ('poison', 0.4726879662762873), ('pelt', 0.5357193462012633)]
+Neighbors for chair: [('chair', 1.1102230246251565e-16), ('havent', 0.4991674672959807), ('wet', 0.5544239207731927), ('stay', 0.5618757931035876), ('bored', 0.5662053120213135)]
+Neighbors for wand: [('wand', 0.0), ('anothers', 0.5231283991489476), ('ought', 0.548483159718785), ('blood', 0.5585823568190971), ('tart', 0.5601953485748259)]
+Neighbors for good: [('good', 0.0), ('about', 0.47241338951038125), ('gallery', 0.5150728870705416), ('much', 0.5271200114738331), ('Snape', 0.527677742370708)]
+Neighbors for enter: [('enter', 2.220446049250313e-16), ('Side', 0.5017226405918757), ('More', 0.5086191732570213), ('sneak', 0.510927935663931), ('continue', 0.5147062172193524)]
+Neighbors for on: [('on', 0.0), ('over', 0.42562170916556097), ('with', 0.4358896850587992), ('back', 0.4502623149632494), ('Brought', 0.4906451453638707)]
+Neighbors for school: [('school', 1.1102230246251565e-16), ('fateful', 0.5030467734760254), ('English', 0.5046711606697044), ('That', 0.5103334874971845), ('month', 0.5425368022784749)]
+
+non corrected normal:
+Neighbors for Harry: [('Harry', 2.220446049250313e-16), ('still', 0.5073591130073449), ('win', 0.5125909193709826), ('settling', 0.5157470018456968), ('inform', 0.5274604734289052)]
+Neighbors for Gryffindor: [('Gryffindor', 0.0), ('seen', 0.4861312803572544), ('minuscule', 0.49754355879568646), ('forward', 0.5308214714871706), ('Quirtell', 0.5501514297103669)]
+Neighbors for chair: [('chair', 0.0), ('stiffly', 0.5666770878621294), ('Cross', 0.5802983144184302), ('creepers', 0.5847992222052556), ('cured', 0.5851472986846308)]
+Neighbors for wand: [('wand', 3.3306690738754696e-16), ('program', 0.493865738338928), ('Chasers', 0.5401008473086392), ('killed', 0.569206047841008), ('delights', 0.5720255648867618)]
+Neighbors for good: [('good', 0.0), ('headless', 0.4718299060634328), ('Get', 0.4999480170037558), ('ends', 0.5029637475811123), ('a', 0.5101082158855339)]
+Neighbors for enter: [('enter', 0.0), ('THROUGH', 0.49820358064665504), ('stalactite', 0.5220408343668208), ('account', 0.550958464049109), ('mines', 0.5548292843357229)]
+Neighbors for on: [('on', 2.220446049250313e-16), ('mumbling', 0.47126902225725364), ('happiest', 0.49251290435260386), ('closed', 0.5055601536713142), ('nurse', 0.5091919140120542)]
+Neighbors for school: [('school', 2.220446049250313e-16), ('world', 0.47167104811064253), ('seized', 0.5235488347997266), ('saintly', 0.5411206406397847), ('chewing', 0.5477130607759588)]
+
+uniform distribution is better than normal.
+RI looks better than w2v, but it was trained on more text so comparison is not the best.
+
+
+3.3.
+RI:
+                       Real class
+                        0        1
+Predicted class:  0 84700.000 15153.000
+                  1   10.000  135.000
+
+W2V:
+                       Real class
+                        0        1
+Predicted class:  0 29362.000  234.000
+                  1 55348.000 15054.000
+
+Tried different parameters, didn't work for RI. W2V achieves some success, but still bad.
+Accuracy at 0.4416
+
+3.4.
+Neighbors for harry: [('harry', 0.0), ('he', 0.061380659889968214), ('ron', 0.10406597978439769), ('it', 0.1151635459362006), ('and', 0.12818102401776954)]
+Neighbors for gryffindor: [('gryffindor', 0.0), ('slytherin', 0.29645622803647553), ('kitchen', 0.3633505407657551), ('ravenclaw', 0.44319228169506575), ('room', 0.47166626986069327)]
+Neighbors for chair: [('chair', 3.3306690738754696e-16), ('trunk', 0.31004458312419014), ('seat', 0.31336454276590575), ('broomstick', 0.39324630542239103), ('chest', 0.4049004132040891)]
+Neighbors for wand: [('wand', 0.0), ('hand', 0.2530093236560129), ('head', 0.27271980211735514), ('body', 0.36453560907914717), ('mouth', 0.3746022596759151)]
+Neighbors for good: [('good', 0.0), ('very', 0.3438730839232599), ('big', 0.36235839050119134), ('well', 0.37876192597145475), ('this', 0.3807934559815448)]
+Neighbors for enter: [('enter', 0.0), ('gloriously', 0.48268221210792317), ('halves', 0.4891695011362279), ('leading', 0.48918056708569113), ('incantatem', 0.5013486132272837)]
+Neighbors for on: [('on', 0.0), ('with', 0.20965397186897494), ('in', 0.24778186768667432), ('and', 0.2951499579032605), ('of', 0.3033239058192465)]
+Neighbors for school: [('school', 2.220446049250313e-16), ('castle', 0.28625366821958265), ('house', 0.357810410760658), ('books', 0.40133484685632537), ('summer', 0.4065416241075547)]
+
+Results are decent, except maybe for harry. Still RI was the best.

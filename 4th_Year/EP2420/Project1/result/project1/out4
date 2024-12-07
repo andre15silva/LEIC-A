@@ -1,0 +1,12 @@
+delivery4.py:30: DataConversionWarning: Data with input dtype int64, float64 were all converted to float64 by the scale function.
+  XX.iloc[:,1:] = scale(XX.iloc[:,1:], axis=0)
+/home/andre/anaconda3/lib/python3.7/site-packages/sklearn/preprocessing/data.py:197: UserWarning: Numerical issues were encountered when scaling the data and might not be solved. The standard deviation of the data is probably very close to 0. 
+  warnings.warn("Numerical issues were encountered "
+0.07243831174314716
+Measured target value for 1192: 24.0
+20th percentile: 24
+50th percentile: 24
+95th percentile: 24
+Accuracy of 20th percentile: 0.7033724613378051
+Accuracy of 50th percentile: 0.8952860070803056
+Accuracy of 95th percentile: 0.9991615427613192

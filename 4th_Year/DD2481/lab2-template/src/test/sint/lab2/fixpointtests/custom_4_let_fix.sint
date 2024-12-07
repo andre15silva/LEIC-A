@@ -1,0 +1,8 @@
+// argument
+let a = 5 in
+
+// inc function until 10
+let inc = fix (\inc:int->int. \x:int. if x < 10 then inc (x + 1) else 10) in
+
+// call inc function
+inc a

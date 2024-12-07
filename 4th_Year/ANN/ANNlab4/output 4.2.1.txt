@@ -1,0 +1,29 @@
+Output 4.2
+
+learning CD1
+iteration=      0 recon_loss=0.5082
+iteration=   5000 recon_loss=0.0614
+iteration=  10000 recon_loss=0.0673
+iteration=  15000 recon_loss=0.0557
+iteration=  20000 recon_loss=0.0621
+iteration=  25000 recon_loss=0.0670
+done first layer
+ bladibla training hid--pen
+learning CD1
+iteration=      0 recon_loss=0.5048
+iteration=   5000 recon_loss=0.0141
+iteration=  10000 recon_loss=0.0171
+iteration=  15000 recon_loss=0.0160
+iteration=  20000 recon_loss=0.0105
+iteration=  25000 recon_loss=0.0121
+training pen+lbl--top
+learning CD1
+iteration=      0 recon_loss=0.4987
+iteration=   5000 recon_loss=0.0292
+iteration=  10000 recon_loss=0.0272
+iteration=  15000 recon_loss=0.0220
+iteration=  20000 recon_loss=0.0227
+iteration=  25000 recon_loss=0.0273
+
+Accuracy 78.14% on traingin Data
+78.24% on Test data

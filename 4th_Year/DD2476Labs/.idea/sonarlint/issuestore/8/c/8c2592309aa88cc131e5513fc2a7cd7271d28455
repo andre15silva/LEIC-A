@@ -1,0 +1,9 @@
+
+A
+java:S1659F"Declare "j" on a separate line.(á”æåþÿÿÿÿ8ð²æÿô.
+H
+java:S1172("2Remove this unused method parameter "rankingType".(”ŸƒŽ
+z	java:S135v"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆžÿÿÿÿÿ8ÃˆÌ¤õ.
+z	java:S135l"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆžÿÿÿÿÿ8­‚ä¤õ.
+t
+java:S3776d"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(á«ä¡þÿÿÿÿ8Í¸“¡õ.

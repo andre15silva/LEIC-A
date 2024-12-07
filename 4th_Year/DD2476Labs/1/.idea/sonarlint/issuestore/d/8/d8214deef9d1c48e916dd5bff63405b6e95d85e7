@@ -1,0 +1,40 @@
+
+Q
+java:S1874r"/Remove this use of "Integer"; it is deprecated.(¦¤»Íşÿÿÿÿ8…­€Úú.
+f	java:S117E"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©´Ä¨
+c
+java:S2147ª"ECombine this catch with the one at line 168, which has the same body.(ï­£Ä8¼ÏíÙú.
+f	java:S1172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø¿Àê
+h
+java:S3776E"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(©´Ä¨
+F
+java:S1148«"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÚÚú.
+c
+java:S2147›"ECombine this catch with the one at line 153, which has the same body.(ï­£Ä8ÚÚú.
+w
+java:S1192i"ZDefine a constant instead of duplicating this literal "davisEuclideanLengths.txt" 3 times.(ƒî‹ó8¡Ì€Úú.
+F
+java:S1148š"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8­Òš‚ú.
+E
+java:S1148z"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¼ÏíÙú.
+F
+java:S1148œ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¼ÏíÙú.
+R
+java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ë¬•¶8®Òš‚ú.
+r	java:S116*"XRename this field "patterns_file" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÅâòûÿÿÿÿ
+t
+java:S3776h"RRefactor this method to reduce its Cognitive Complexity from 36 to the 15 allowed.(¶Äúúÿÿÿÿ8­Òš‚ú.
+b
+java:S2147y"ECombine this catch with the one at line 119, which has the same body.(ï­£Ä8­Òš‚ú.
+l
+java:S2095¡"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(‹˜˜Ä8ÚîéÙú.
+n	java:S117’"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä·ˆ¤8­Òš‚ú.
+F
+java:S1148©"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÚÚú.
+E
+java:S1066H"/Merge this if statement with the enclosing one.(ößÂ
+P
+java:S1874r".Remove this use of "Double"; it is deprecated.(¦¤»Íşÿÿÿÿ8è´‚Úú.
+E
+java:S1148x"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8­Òš‚ú.
+s	java:S117“"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½¿ôËúÿÿÿÿ8”£²“ÿ.

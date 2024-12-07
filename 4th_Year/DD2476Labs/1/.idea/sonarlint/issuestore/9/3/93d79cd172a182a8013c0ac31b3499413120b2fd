@@ -1,0 +1,18 @@
+
+r	java:S116-"XRename this field "patterns_file" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ž¯‡ƒùÿÿÿÿ
+A
+java:S1481e"&Remove this unused "j" local variable.(á”æåþÿÿÿÿ
+B
+java:S1481Š"&Remove this unused "e" local variable.(—£ëÜùÿÿÿÿ
+p	java:S1166"VRename this field "is_indexing" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î´‚Ùÿÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(ƒ¬ªü
+i	java:S1163"TRename this field "rank_file" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ò÷
+h
+java:S3776d"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(œžÛª
+Q
+java:S1854Š"5Remove this useless assignment to local variable "e".(—£ëÜùÿÿÿÿ
+:
+java:S1659e"Declare "j" on a separate line.(á”æåþÿÿÿÿ
+h	java:S1160"SRename this field "pic_file" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ›ã
+o
+java:S2293'"YReplace the type specification in this constructor call with the diamond operator ("<>").(•â•Î

@@ -1,0 +1,9 @@
+
+E
+java:S1128"/Remove this unused import 'java.util.Iterator'.(•ÕÚ’
+k
+java:S1104'"UMake queryterm a static final constant or non-public and provide accessors if needed.(ÅÎ≥‘
+o
+java:S2293'"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÅÎ≥‘
+ä
+java:S1319'"tThe type of the "queryterm" object should be an interface such as "List" rather than the implementation "ArrayList".(ÅÎ≥‘

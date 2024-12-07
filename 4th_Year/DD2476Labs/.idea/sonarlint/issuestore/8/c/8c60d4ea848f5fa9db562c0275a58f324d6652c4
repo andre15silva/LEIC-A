@@ -1,0 +1,32 @@
+
+M
+java:S1874ñ"/Remove this use of "Integer"; it is deprecated.(ÜÅÁ­8Êîö¬ö.
+>
+java:S1148v"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+?
+java:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+F
+java:S1148Ã"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¹Ñ¹Îõ.
+F
+java:S1148³"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¨ÓÙÌõ.
+>
+java:S3626"Remove this redundant jump.(ÓÒ¿Íıÿÿÿÿ8Êîö¬ö.
+n	java:S117Â"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œãÙ«8–®Ş ö.
+X	java:S125<"<This block of commented-out lines of code should be removed.(˜Î€º8ÇÒÈ»ö.
+B
+java:S2676É"Use the original value instead.(”¯ªòşÿÿÿÿ8Êîö¬ö.
+?
+java:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+q
+java:S2095Ù"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(‰”­Ñıÿÿÿÿ8ıÙöôõ.
+Z
+java:S1128"=Remove this unused import 'java.nio.file.StandardOpenOption'.(¸ ÅÎ8ığşôõ.
+E	java:S108{")Either remove or fill this block of code.(‹±ÃÆ8Êîö¬ö.
+F
+java:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Å‰¡Îõ.
+M
+java:S1874ğ"/Remove this use of "Integer"; it is deprecated.(ÕÉÌÆ8Êîö¬ö.
+M
+java:S1874ñ"/Remove this use of "Integer"; it is deprecated.(ÜÅÁ­8Êîö¬ö.
+>
+java:S1148}"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ

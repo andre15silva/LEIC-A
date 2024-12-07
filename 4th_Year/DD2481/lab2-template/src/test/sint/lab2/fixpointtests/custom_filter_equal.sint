@@ -1,0 +1,19 @@
+// helper functions
+let and = \x:bool. \y:bool. if x then y else false in
+let not = \x11:bool. if x11 then false else true in
+let iszero = \x22:int. and (x22 < 1) (not (x22 < 0)) in
+let equal = \x33:int. \y33:int. iszero (x33 + - y33) in
+let less = \x44:int. \y44:int. and (not (x44 < y44)) (not (iszero (x44 + - y44))) in
+let greater = \x55:int. \y55:int. and (x55 < y55) (not (equal x55 y55)) in
+
+// filter function
+letrec filter:(int->bool)->[int]->[int] = \f:int->bool. \l:[int]. 
+                                           if (isnil l) then
+                                            [int]
+                                           else if (f (hd l)) then
+                                            (hd l)::(filter f (tl l))
+                                           else
+                                            (filter f (tl l))
+in
+
+filter (equal 0) ([0,1,0,2,3,0|int])

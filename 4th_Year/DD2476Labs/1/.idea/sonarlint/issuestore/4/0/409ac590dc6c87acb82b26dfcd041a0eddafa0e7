@@ -1,0 +1,77 @@
+
+s	java:S117³"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ·Ö™ûÿÿÿÿ8‚ƒ·âú.
+;
+java:S2119›"Save and re-use this "Random".(¼İÅf8‚âú.
+s	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ·Ö™ûÿÿÿÿ8¨¹¶âú.
+n	java:S117Õ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·««8Úüîçù.
+d
+java:S1192ß"FDefine a constant instead of duplicating this literal "times" 4 times.(«öÄ£8Üãú.
+s	java:S117£"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô¸•øûÿÿÿÿ8€÷¿¸ù.
+s	java:S117ë"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ·Ö™ûÿÿÿÿ8ÿÏ°âú.
+g
+java:S3518¡"DMake sure "numberOfVisits" can't be zero before doing this division.(Ò¡İòıÿÿÿÿ8ï‘´âú.
+u
+java:S3776ê"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(±­»Íÿÿÿÿÿ8‚âú.
+V
+java:S1172Ó"3Remove this unused method parameter "numberOfDocs".(¸ôø²úÿÿÿÿ8Üãú.
+s	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¬Ïñÿÿÿÿÿ8Üãú.
+t
+java:S3776K"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(€ü§¶ûÿÿÿÿ8ñËû·ù.
+s	java:S117ê"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±­»Íÿÿÿÿÿ8Úüîçù.
+s	java:S117š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¥ìöúÿÿÿÿ8‚âú.
+n	java:S117»"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÀáñ8‚âú.
+g
+java:S3518í"DMake sure "numberOfVisits" can't be zero before doing this division.(Ò¡İòıÿÿÿÿ8‚âú.
+;
+java:S2119Ì"Save and re-use this "Random".(¼İÅf8‚âú.
+n	java:S117°"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à¥¾©8¯ü·ù.
+n	java:S117ñ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÀáñ8‚âú.
+u
+java:S3776š"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(­¥ìöúÿÿÿÿ8ÜÙ³âú.
+s	java:S117´"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¬Ïñÿÿÿÿÿ8Üãú.
+g
+java:S11245"EReorder the modifiers to comply with the Java Language Specification.(†…ºıÿÿÿÿ8ñËû·ù.
+0
+java:S1220""Move this file to a named package.
+s	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üÂ„ıÿÿÿÿ8ï‘´âú.
+h
+java:S3027R"FPut single-quotes around ';' to use the faster "indexOf(char)" method.(ÎÇÏÈÿÿÿÿÿ8ñËû·ù.
+|
+java:S1210’"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(´ü÷øÿÿÿÿ8ñËû·ù.
+n	java:S117Ë"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ’©ø8‚âú.
+b
+java:S1124/"EReorder the modifiers to comply with the Java Language Specification.(Óß¯8ñËû·ù.
+s	java:S117È"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ·Ö™ûÿÿÿÿ8¤ƒááú.
+\
+java:S1128":Remove this unused import 'javax.sound.midi.SysexMessage'.(áÔíÄúÿÿÿÿ8¬Íçáú.
+n	java:S117¥"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÀáñ8ï‘´âú.
+s	java:S117Ô"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øúûÿÿÿÿ8ıêæ·ù.
+]	java:S125="<This block of commented-out lines of code should be removed.(Úµ»®ùÿÿÿÿ8›òÃúú.
+p
+java:S3776µ"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(­øá¡8¨¹¶âú.
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ıÚ¥–8ñËû·ù.
+k
+java:S2095½"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(¥á®Óúÿÿÿÿ8†Ï¥ºù.
+{	java:S135Ö"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8‚âú.
+{
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÄåÃùÿÿÿÿ8ñËû·ù.
+{	java:S135‹"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8ï‘´âú.
+s	java:S117ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¬Ïñÿÿÿÿÿ8Üãú.
+u
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(üÂ„ıÿÿÿÿ8¹×µâú.
+p	java:S100Ó"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ôø²úÿÿÿÿ8Üãú.
+n	java:S117×"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°åÅˆ8ñËû·ù.
+s	java:S117É"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¬Ïñÿÿÿÿÿ8Üãú.
+i
+java:S2095O"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Á›•œ8ñËû·ù.
+s	java:S117Ë"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â—Äùÿÿÿÿ8ñËû·ù.
+;
+java:S2119‚"Save and re-use this "Random".(¼İÅf8ï‘´âú.
+p
+java:S3776Ë"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÿ’©ø8ï‘´âú.
+n	java:S117Š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÀáñ8Úüîçù.
+;
+java:S2119ë"Save and re-use this "Random".(¼İÅf8Úüîçù.
+e
+java:S1192Ø"GDefine a constant instead of duplicating this literal "errors" 4 times.(ä¶Àœ8Üãú.

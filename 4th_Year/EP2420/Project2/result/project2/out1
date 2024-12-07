@@ -1,0 +1,2 @@
+delivery1.py:24: DataConversionWarning: Data with input dtype int64, float64 were all converted to float64 by the scale function.
+  XX.iloc[:,1:] = scale(XX.iloc[:,1:], axis=0)

@@ -1,0 +1,82 @@
+3 
+
+b)
+
+~/Repos/DD2418/02/LanguageModels main
+❯ ./run_tester_austen_austen.sh
+Read 13162 words. Estimated entropy: 5.72
+
+~/Repos/DD2418/02/LanguageModels main
+❯ ./run_tester_guardian_austen.sh
+Read 13162 words. Estimated entropy: 6.40
+
+~/Repos/DD2418/02/LanguageModels main
+❯ ./run_tester_guardian_guardian.sh
+Read 871878 words. Estimated entropy: 6.62
+
+~/Repos/DD2418/02/LanguageModels main 10s
+❯ ./run_tester_austen_guardian.sh
+Read 871878 words. Estimated entropy: 9.75
+
+Guardian test set is always harder to predict (it is also larger) than Austen.
+
+Entropy is always lower when we test the models with the corresponding training dataset.
+Training and testing in the same domain yields better models.
+
+
+
+
+4
+
+b)
+Model parameters:
+0: -3.5554  1: 5.8112  2: -3.0428
+                       Real class
+                        0        1
+Predicted class:  0 83831.000 3242.000
+                  1  879.000 12046.000
+
+c)
+Model parameters:
+0: -3.6019  1: 6.0285  2: -3.3988
+                       Real class
+                        0        1
+Predicted class:  0 83831.000 3242.000
+                  1  879.000 12046.000
+
+Performance varied quite a bit, but was definitely faster than batch training
+
+d)
+Model parameters:
+0: -3.4767  1: 5.4622  2: -2.5849
+                       Real class
+                        0        1
+Predicted class:  0 83831.000 3242.000
+                  1  879.000 12046.000
+
+Consistently the fastest
+
+e)
+
+accuracy = (83831+12046)/(83831+12046+3242+879) = 0.9588
+
+precision(0) = (83831)/(83831+3242) = 0.9628
+recall(0) = (83831)/(83831+879) = 0.9896
+
+precision(1) = (12046)/(12046+879) = 0.9320
+recall(1) = (12046)/(12046+3242) = 0.7879
+
+f) Two features:
+    - Is determiner
+    - Is numeric
+
+    Neither gave better results, alone or together (minibatch fit)
+
+    Stochastic fit did changes sometimes. Nothing major, and not better for all classes.
+
+    Model parameters:
+0: -4.1066  1: 6.3974  2: -2.7644  3: -2.8513  4: 3.6203
+                       Real class
+                        0        1
+Predicted class:  0 83859.000 3251.000
+                  1  851.000 12037.000

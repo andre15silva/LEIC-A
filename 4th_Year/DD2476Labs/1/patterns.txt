@@ -1,0 +1,54 @@
+//
+//  Information retrieval course
+//  First version: Johan Boye 2016
+//
+// In this file you can put your regular expressions
+// for matching non-standard words (like mail addresses).
+//
+// As you have probably already understood, lines beginning
+// with "//" are comments.
+
+// urls
+(http)(s)?(\:\/\/)(([a-zA-Z0-9\%\-]+)(\.)?)+(\:[0-9]+)?(\/)?([a-zA-Z0-9\.\/\-\+\?\:,&=;%_#@!]*)
+
+// emails
+[a-zA-Z0-9\._]+@([a-zA-Z0-9]+\.)+[a-zA-Z0-9]+
+
+// ips
+\d+\.\d+\.\d+\.\d+
+
+// phone numbers
+(\d\-)?\d+\-\d+\-\d+
+
+// country codes
+\+\d+
+
+// A-B
+([a-zA-Z0-9]+)\-([a-zA-Z0-9]+)
+
+// sections and time
+(\d\.)+\d+
+
+// e.g.
+([a-zA-Z0-9])\.([a-zA-Z0-9])\.
+
+// files
+([a-zA-Z0-9\.\/\-\+\?\:,&=;%_#@!]+)\.(doc(x)?|ppt(x)?|xls(x)?|exe|mp3|7z|zip|rar|iso|csv|txt|xml|eml|png|jpg|jpeg|gif)
+
+// time
+\d\d\:\d\d:\d\d
+
+// numbers w/ division
+(\d+\,)+\d+
+
+// Twenty-four seven
+\d+/\d+
+
+// money
+\$[\d]+
+
+// aposthropes
+[a-zA-Z]+\'[a-zA-Z]+
+
+// 'stuff
+(?!'[a-zA-Z]+')\'[a-zA-Z]+

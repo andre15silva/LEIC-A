@@ -1,0 +1,6 @@
+// argument
+let a = 5 in
+// inc function
+let inc = \n:int. n + 1 in
+// call inc function
+inc a

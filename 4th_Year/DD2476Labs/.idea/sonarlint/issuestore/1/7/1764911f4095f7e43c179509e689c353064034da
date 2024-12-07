@@ -1,0 +1,12 @@
+
+>
+java:S11483"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+l	java:S116"WRename this field "case_folding" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—– ‰
+v	java:S116"\Rename this field "remove_diacritics" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾²şÿÿÿÿ
+r	java:S116"]Rename this field "remove_punctuation" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾™ñ¸
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(üÆ¨
+h
+java:S3776F"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Çµí‘
+F
+java:S1481,"+Remove this unused "offset" local variable.(¼ı”äÿÿÿÿÿ

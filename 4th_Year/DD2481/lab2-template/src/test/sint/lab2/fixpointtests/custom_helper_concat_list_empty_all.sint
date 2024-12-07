@@ -1,0 +1,27 @@
+// helper functions
+let and = \x:bool. \y:bool. if x then y else false in
+let not = \x:bool. if x then false else true in
+let iszero = \x:int. and (x < 1) (not (x < 0)) in
+let equal = \x:int. \y:int. iszero (x + - y) in
+let less = \x:int. \y:int. and (not (x < y)) (not (iszero (x + - y))) in
+let greater = \x:int. \y:int. and (x < y) (not (equal x y)) in
+
+// concatenate list function
+let g = \concat:[int]->[int]->[int]. \l:[int]. \r:[int].
+                // terminal case
+                if (and (isnil l) (isnil r)) then
+                    l
+                // left is clear
+                else if (isnil l) then
+                    (hd r)::(tl r)
+                else
+                    (hd l)::(concat (tl l) r)
+in
+let concat = fix g in
+
+// parameters
+let l = [int] in
+let r = [int] in
+
+// call
+concat l r

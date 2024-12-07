@@ -1,0 +1,10 @@
+
+p
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(Îü¤«8È¬¹“ÿ.
+J
+java:S3740"/Provide the parametrized type for this generic.(ÎĞ¦ùÿÿÿÿ
+s	java:S117è"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áéë´úÿÿÿÿ8˜à…ÿ.
+R
+java:S2864™"4Iterate over the "entrySet" instead of the "keySet".(É‡‡ë8®’æœÿ.
+t
+java:S12100"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(ÿ¥·öùÿÿÿÿ

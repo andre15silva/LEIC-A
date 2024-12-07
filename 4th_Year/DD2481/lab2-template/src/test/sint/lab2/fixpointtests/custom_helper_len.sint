@@ -1,0 +1,5 @@
+// len function
+let g = \len:[int]->int. \l:[int]. if (isnil l) then 0 else (1 + len (tl l)) in
+let len = fix g in
+
+len [1,2,3,4|int]

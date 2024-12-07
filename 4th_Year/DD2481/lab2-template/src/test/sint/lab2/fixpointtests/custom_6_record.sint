@@ -1,0 +1,6 @@
+// Test substitutions inside record and record projection
+let a = 1 in
+let b = 2 in
+let c = 3 in
+let d = {first=a, second=b, third=c} in
+d.first

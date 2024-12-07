@@ -1,0 +1,21 @@
+
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¶°¨àÿÿÿÿÿ
+8
+java:S1214""Move constants to a class or enum.(àç¨…
+
+java:S1319"rThe type of the "docLengths" object should be an interface such as "Map" rather than the implementation "HashMap".(¶°¨àÿÿÿÿÿ
+
+java:S1319"{The type of the "docEuclideanLengths" object should be an interface such as "Map" rather than the implementation "HashMap".(½‡”—ÿÿÿÿÿ8Ôáú.
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÃñÊÆ
+P
+java:S2386"5Move "docLengths" to a class and lower its visibility(¶°¨àÿÿÿÿÿ
+E
+java:S1128"/Remove this unused import 'java.util.Iterator'.(¥ÍòÕ
+†
+java:S1319"pThe type of the "docNames" object should be an interface such as "Map" rather than the implementation "HashMap".(ÃñÊÆ
+`
+java:S2386">Move "docEuclideanLengths" to a class and lower its visibility(½‡”—ÿÿÿÿÿ8Ôáú.
+I
+java:S2386"3Move "docNames" to a class and lower its visibility(ÃñÊÆ

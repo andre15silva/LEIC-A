@@ -1,0 +1,42 @@
+
+h
+java:S3027Ê"JPut single-quotes around '/' to use the faster "lastIndexOf(char)" method.(÷ÒÍ8£ï½ù.
+n	java:S117»"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä·ˆ¤8ãæò¼ù.
+n	java:S117î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä·ˆ¤8ãæò¼ù.
+s	java:S117”"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áéë´úÿÿÿÿ8á¹§ÿ.
+n	java:S117ğ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê¬Ùş8âæò¼ù.
+Z
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8õÀşş.
+u
+java:S3008-"XRename this field "TF_IDF_WEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±À¥8â˜¶Ùú.
+o
+java:S2095õ"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ÎñƒÓıÿÿÿÿ8÷Éö¼ù.
+n	java:S117Æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤¸ÛŠ8õÀşş.
+Z
+java:S1117ô"=Rename "pageRanks" which hides the field declared at line 37.(¹¹Ú8Í‚ï¼ù.
+F
+java:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ãæò¼ù.
+I
+java:S1168²"+Return an empty collection instead of null.(¥¹ï8á¹§ÿ.
+t	java:S135‡"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ
+i
+java:S2095ô"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(¹¹Ú8÷Éö¼ù.
+m
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(á«ä¡şÿÿÿÿ
+p
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(£óŞû8á¹§ÿ.
+t	java:S135‘"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ
+}
+java:S3008,"[Rename this field "PAGE_RANK_WEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ô¤ãÿÿÿÿÿ8åã”½ù.
+d
+java:S3027"FPut single-quotes around '*' to use the faster "indexOf(char)" method.(êí¾ù8á¹§ÿ.
+s	java:S117¼"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş¹é÷ÿÿÿÿÿ8×¥Ø¼ù.
+n	java:S117½"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê¬Ùş8¦Ù‚ú.
+s	java:S117ï"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş¹é÷ÿÿÿÿÿ8ãæò¼ù.
+s	java:S117ù"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õò¼ıÿÿÿÿ8¦Ù‚ú.
+:
+java:S1659a"Declare "j" on a separate line.(á”æåşÿÿÿÿ
+F
+java:S1148ƒ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8şâö¼ù.
+c
+java:S2147‚"ECombine this catch with the one at line 256, which has the same body.(ï­£Ä8şâö¼ù.

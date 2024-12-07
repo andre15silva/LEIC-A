@@ -1,0 +1,21 @@
+// helper functions
+let and = \x:bool. \y:bool. if x then y else false in
+let not = \x:bool. if x then false else true in
+let iszero = \x:int. and (x < 1) (not (x < 0)) in
+let equal = \x:int. \y:int. iszero (x + - y) in
+let less = \x:int. \y:int. and (not (x < y)) (not (iszero (x + - y))) in
+let greater = \x:int. \y:int. and (x < y) (not (equal x y)) in
+
+// div function
+// greater or equal by hand
+let g = \div:int->int->int. \x:int. \y:int.
+                    if (greater y x) then
+                        1 + (div (x + - y) y)
+                    else if (equal x y) then
+                        1 + (div (x + - y) y)
+                    else
+                        0
+in
+let div = fix g in
+
+div 2 2

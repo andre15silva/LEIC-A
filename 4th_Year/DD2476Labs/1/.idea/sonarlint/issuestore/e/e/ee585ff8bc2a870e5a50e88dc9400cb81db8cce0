@@ -1,0 +1,20 @@
+
+w
+java:S2293™"YReplace the type specification in this constructor call with the diamond operator ("<>").(´İ‘ò8ü¼†¨ş.
+f	java:S116-"LRename this field "K" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸õÚæøÿÿÿÿ
+I
+java:S1481š"&Remove this unused "j" local variable.(á”æåşÿÿÿÿ8ü¼†¨ş.
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Õ…ùØ
+B
+java:S1659š"Declare "j" on a separate line.(á”æåşÿÿÿÿ8éşş.
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ËÔÃõ
+t
+java:S2293#"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ñ„Éüÿÿÿÿ
+›
+java:S1130¸"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(ı‡ÏÁøÿÿÿÿ8ü¼†¨ş.
+A
+java:S1659M"Declare "j" on a separate line.(á”æåşÿÿÿÿ8ü¼†¨ş.
+p
+java:S3776˜"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Šúïù8ü¼†¨ş.

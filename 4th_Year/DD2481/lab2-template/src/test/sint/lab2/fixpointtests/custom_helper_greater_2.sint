@@ -1,0 +1,9 @@
+// helper functions
+let and = \x:bool. \y:bool. if x then y else false in
+let not = \x:bool. if x then false else true in
+let iszero = \x:int. and (x < 1) (not (x < 0)) in
+let equal = \x:int. \y:int. iszero (x + - y) in
+let less = \x:int. \y:int. (x < y) in
+let greater = \x:int. \y:int. and (not (less x y)) (not (equal x y)) in
+
+greater 1 2
